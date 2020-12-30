@@ -13,9 +13,9 @@ export default function BaseRadar() {
     })
 
     const teamMatesDict = {
-        'Mike': [21, 52, 97, 63, 80],
-        'Anne': [30, 29, 37, 20, 10],
-        'John': [89, 90, 17, 63, 50]
+        'Mike': [50, 52, 100, 63, 80],
+        'Anne': [30, 79, 47, 90, 30],
+        'John': [89, 90, 55, 20, 50]
     };
 
     // get teamMatesDict keys
@@ -24,7 +24,10 @@ export default function BaseRadar() {
 
     console.log('\nTeam + values: ')
     for(let key in teamMatesDict) {
-        console.log(key + ': ' + teamMatesDict[key]);
+        console.log(key + ': ');
+        for(let i = 0; i < 5; i++) {
+            console.log('\t' + i + ') ' + teamMatesDict[key][i]);
+        }
     }
 
     console.log('\nThe soft skill considered are: ')
@@ -38,42 +41,42 @@ export default function BaseRadar() {
     const my_data = [
         {
             "taste": softSkills[0],
-            "Mike": 21,
-            "Anne": 114,
-            "John": 99
+            [teamKeys[0]]: teamMatesDict[teamKeys[0]][0],
+            [teamKeys[1]]: teamMatesDict[teamKeys[1]][0],
+            [teamKeys[2]]: teamMatesDict[teamKeys[2]][0]
         },
         {
             "taste": softSkills[1],
-            "Mike": 52,
-            "Anne": 91,
-            "John": 92
+            [teamKeys[0]]: teamMatesDict[teamKeys[0]][1],
+            [teamKeys[1]]: teamMatesDict[teamKeys[1]][1],
+            [teamKeys[2]]: teamMatesDict[teamKeys[2]][1]
         },
         {
             "taste": softSkills[2],
-            "Mike": 79,
-            "Anne": 113,
-            "John": 98
+            [teamKeys[0]]: teamMatesDict[teamKeys[0]][2],
+            [teamKeys[1]]: teamMatesDict[teamKeys[1]][2],
+            [teamKeys[2]]: teamMatesDict[teamKeys[2]][2]
         },
         {
             "taste": softSkills[3],
-            "Mike": 65,
-            "Anne": 96,
-            "John": 120
+            [teamKeys[0]]: teamMatesDict[teamKeys[0]][3],
+            [teamKeys[1]]: teamMatesDict[teamKeys[1]][3],
+            [teamKeys[2]]: teamMatesDict[teamKeys[2]][3]
         },
         {
             "taste": softSkills[4],
-            "Mike": 67,
-            "Anne": 62,
-            "John": 26
+            [teamKeys[0]]: teamMatesDict[teamKeys[0]][4],
+            [teamKeys[1]]: teamMatesDict[teamKeys[1]][4],
+            [teamKeys[2]]: teamMatesDict[teamKeys[2]][4]
         }
     ];
+
     for(let i = 0; i < my_data.length; i++) {
         console.log('|index: ' + i);
         for(let key in my_data[i]) {
             console.log(key + ': ' + my_data[i][key]);
         }
     }
-
 
     const margins = {top: 50, right: 120, bottom: 50, left: 80};
 
