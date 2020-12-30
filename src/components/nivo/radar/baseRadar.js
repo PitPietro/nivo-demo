@@ -1,6 +1,15 @@
 import React from "react"
 import { ResponsiveRadar } from '@nivo/radar'
 
+function print_dict(object) {
+        for(let key in object) {
+            // check if the property/key is defined in the object itself, not in parent
+            if(object.hasOwnProperty(key)) {
+                console.log(key + ': ' + object[key]);
+            }
+        }
+}
+
 export default function BaseRadar() {
     const teamMates = ['Mike', 'Anne', 'John'];
     const softSkills = ['Communication', 'Critical Thinking', 'Leadership', 'Positive Attitude', 'Teamwork'];
@@ -30,7 +39,7 @@ export default function BaseRadar() {
         }
     }
 
-    console.log('\nThe soft skill considered are: ')
+    console.log('\nThe soft skills considered are: ')
     let s = 0
     softSkills.forEach( skill => {
             console.log(s + ') ' + skill.toString());
@@ -38,48 +47,30 @@ export default function BaseRadar() {
     })
 
     // list of dictionaries containing the layers (team mate and their values) foreach dimension (soft skill)
-    const my_data = [
-        {
-            "taste": softSkills[0],
-            [teamKeys[0]]: teamMatesDict[teamKeys[0]][0],
-            [teamKeys[1]]: teamMatesDict[teamKeys[1]][0],
-            [teamKeys[2]]: teamMatesDict[teamKeys[2]][0]
-        },
-        {
-            "taste": softSkills[1],
-            [teamKeys[0]]: teamMatesDict[teamKeys[0]][1],
-            [teamKeys[1]]: teamMatesDict[teamKeys[1]][1],
-            [teamKeys[2]]: teamMatesDict[teamKeys[2]][1]
-        },
-        {
-            "taste": softSkills[2],
-            [teamKeys[0]]: teamMatesDict[teamKeys[0]][2],
-            [teamKeys[1]]: teamMatesDict[teamKeys[1]][2],
-            [teamKeys[2]]: teamMatesDict[teamKeys[2]][2]
-        },
-        {
-            "taste": softSkills[3],
-            [teamKeys[0]]: teamMatesDict[teamKeys[0]][3],
-            [teamKeys[1]]: teamMatesDict[teamKeys[1]][3],
-            [teamKeys[2]]: teamMatesDict[teamKeys[2]][3]
-        },
-        {
-            "taste": softSkills[4],
-            [teamKeys[0]]: teamMatesDict[teamKeys[0]][4],
-            [teamKeys[1]]: teamMatesDict[teamKeys[1]][4],
-            [teamKeys[2]]: teamMatesDict[teamKeys[2]][4]
-        }
-    ];
+    let my_data = [];
 
-    for(let i = 0; i < my_data.length; i++) {
-        console.log('|index: ' + i);
-        for(let key in my_data[i]) {
-            console.log(key + ': ' + my_data[i][key]);
+    for(let i = 0; i < softSkills.length; i++) {
+        const taste = "taste";
+        let tmp_dict = {};
+        // iterate over the skills
+        tmp_dict[taste] = softSkills[i];
+        for(let j = 0; j < teamKeys.length; j++) {
+            tmp_dict[teamKeys[j]] = teamMatesDict[teamKeys[j]][i];
         }
+
+        my_data.push(tmp_dict);
+
+        console.log(i + '| printing tmp dict:');
+        print_dict(tmp_dict);
+    }
+
+    console.log("\nData array of dictionaries: ");
+    for(let k = 0; k < my_data.length; k++) {
+        console.log('|index: ' + k);
+        print_dict(my_data[k]);
     }
 
     const margins = {top: 50, right: 120, bottom: 50, left: 80};
-
 
     return (
         <>
