@@ -12,13 +12,29 @@ export default function BaseRadar() {
             tm++;
     })
 
-    console.log('The soft skill considered are: ')
+    const teamMatesDict = {
+        'Mike': [21, 52, 97, 63, 80],
+        'Anne': [30, 29, 37, 20, 10],
+        'John': [89, 90, 17, 63, 50]
+    };
+
+    // get teamMatesDict keys
+    const teamKeys = Object.keys(teamMatesDict);
+    console.log('\nTeam keys: ' + teamKeys)
+
+    console.log('\nTeam + values: ')
+    for(let key in teamMatesDict) {
+        console.log(key + ': ' + teamMatesDict[key]);
+    }
+
+    console.log('\nThe soft skill considered are: ')
     let s = 0
     softSkills.forEach( skill => {
             console.log(s + ') ' + skill.toString());
             s++;
     })
 
+    // list of dictionaries containing the layers (team mate and their values) foreach dimension (soft skill)
     const my_data = [
         {
             "taste": softSkills[0],
@@ -51,10 +67,13 @@ export default function BaseRadar() {
             "John": 26
         }
     ];
-
-    for(let key in my_data) {
-        console.log(my_data[key]);
+    for(let i = 0; i < my_data.length; i++) {
+        console.log('|index: ' + i);
+        for(let key in my_data[i]) {
+            console.log(key + ': ' + my_data[i][key]);
+        }
     }
+
 
     const margins = {top: 50, right: 120, bottom: 50, left: 80};
 
@@ -64,8 +83,8 @@ export default function BaseRadar() {
             <div className="radar-div">
                 <h1>Base Radar</h1>
                 <ResponsiveRadar
-                    data={ my_data}
-                    keys={ teamMates}
+                    data={ my_data }
+                    keys={ teamMates }
                     indexBy="taste"
                     maxValue="auto"
                     margin={margins}
