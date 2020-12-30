@@ -74,5 +74,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Installed libraries
 ```bash
 yarn add react-router-dom
+yarn add @nivo/core @nivo/radar @nivo/line @material-ui/core
 
 ```
