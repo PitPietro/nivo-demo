@@ -1,5 +1,4 @@
 import React from "react"
-import {Link} from "react-router-dom";
 import BaseRadar from "./baseRadar";
 
 export default function HomeRadar() {
@@ -7,11 +6,8 @@ export default function HomeRadar() {
         <>
             <div>
                 <h1>Radar</h1>
-                <ol>
-                    <li><Link to="/radar-base/">Base</Link></li>
-                </ol>
-
                 <BaseRadar />
+                <p>The 1st Radar example is focused on a benchmark about the <i>soft skills</i> of a team</p>
             </div>
         </>
     )
