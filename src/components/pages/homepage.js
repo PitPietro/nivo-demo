@@ -6,7 +6,10 @@ export default function HomePage() {
         <>
             <div>
                 <h1>Nivo Demo</h1>
-                <Link to="/radar">Radar</Link>
+                <ol>
+                    <li><Link to="/radar">Radar</Link></li>
+                    <li><Link to="/pie">Pie</Link></li>
+                </ol>
             </div>
         </>
     )

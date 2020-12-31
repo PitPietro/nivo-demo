@@ -1,5 +1,6 @@
 import React from "react"
 import { ResponsiveRadar } from '@nivo/radar'
+import {schemeColors} from "../nivo-utils/constants";
 
 function print_dict(object) {
         for(let key in object) {
@@ -77,18 +78,13 @@ export default function BaseRadar() {
     const gridLabelOffset = 16 // default: 16
     const gridShape = ['circular', 'linear']
 
-    const schemeColors = ['nivo', 'category10', 'accent', 'dark2', 'paired', 'pastel1', 'pastel2', 'set1', 'set2',
-        'set3', 'brown_blueGreen', 'purpleRed_green', 'pink_yellowGreen', 'purple_orange', 'red_blue', 'red_grey',
-        'red_yellow_blue', 'red_yellow_green', 'spectral', 'blues', 'greens', 'greys', 'oranges', 'purples', 'reds',
-        'blue_green', 'blue_purple', 'green_blue', 'orange_red', 'purple_blue_green', 'purple_blue', 'purple_red',
-        'red_purple', 'yellow_green_blue', 'yellow_green', 'yellow_orange_brown', 'yellow_orange_red'
-    ]
+
 
     console.log('There are ' + schemeColors.length + ' different types of scheme colors')
 
     return (
         <>
-            <div className="radar-div">
+            <div className="base-div-50">
                 <h1>Base Radar</h1>
                 <ResponsiveRadar
                     data={ my_data }
