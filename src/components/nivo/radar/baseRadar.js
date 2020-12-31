@@ -48,9 +48,8 @@ export default function BaseRadar() {
 
     // list of dictionaries containing the layers (team mate and their values) foreach dimension (soft skill)
     let my_data = [];
-
+    const taste = "taste";
     for(let i = 0; i < softSkills.length; i++) {
-        const taste = "taste";
         let tmp_dict = {};
         // iterate over the skills
         tmp_dict[taste] = softSkills[i];
@@ -72,6 +71,21 @@ export default function BaseRadar() {
 
     const margins = {top: 50, right: 120, bottom: 50, left: 80};
 
+    const curveOptions = ['linearClosed', 'basisClosed', 'catmullRomClosed', 'cardinalClosed']
+
+    const gridLiv = 10
+    const gridLabelOffset = 16 // default: 16
+    const gridShape = ['circular', 'linear']
+
+    const schemeColors = ['nivo', 'category10', 'accent', 'dark2', 'paired', 'pastel1', 'pastel2', 'set1', 'set2',
+        'set3', 'brown_blueGreen', 'purpleRed_green', 'pink_yellowGreen', 'purple_orange', 'red_blue', 'red_grey',
+        'red_yellow_blue', 'red_yellow_green', 'spectral', 'blues', 'greens', 'greys', 'oranges', 'purples', 'reds',
+        'blue_green', 'blue_purple', 'green_blue', 'orange_red', 'purple_blue_green', 'purple_blue', 'purple_red',
+        'red_purple', 'yellow_green_blue', 'yellow_green', 'yellow_orange_brown', 'yellow_orange_red'
+    ]
+
+    console.log('There are ' + schemeColors.length + ' different types of scheme colors')
+
     return (
         <>
             <div className="radar-div">
@@ -79,15 +93,15 @@ export default function BaseRadar() {
                 <ResponsiveRadar
                     data={ my_data }
                     keys={ teamMates }
-                    indexBy="taste"
+                    indexBy={ taste }
                     maxValue="auto"
                     margin={margins}
-                    curve="linearClosed"
-                    borderWidth={2}
+                    curve={ curveOptions[2] }
+                    borderWidth={2} // default: 2px
                     borderColor={{ from: 'color' }}
-                    gridLevels={5}
-                    gridShape="circular"
-                    gridLabelOffset={36}
+                    gridLevels={gridLiv}
+                    gridShape={gridShape[1]}
+                    gridLabelOffset={gridLabelOffset}
                     enableDots={true}
                     dotSize={10}
                     dotColor={{ theme: 'background' }}
@@ -96,9 +110,9 @@ export default function BaseRadar() {
                     enableDotLabel={true}
                     dotLabel="value"
                     dotLabelYOffset={-12}
-                    colors={{ scheme: 'nivo' }}
-                    fillOpacity={0.25}
-                    blendMode="multiply"
+                    colors={{ scheme: schemeColors[3] }}
+                    fillOpacity={0.25} // 0-1
+                    blendMode="multiply" // default: "normal"
                     animate={true}
                     motionConfig="wobbly"
                     isInteractive={true}
