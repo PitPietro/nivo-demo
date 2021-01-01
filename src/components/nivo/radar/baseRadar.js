@@ -78,14 +78,11 @@ export default function BaseRadar() {
     const gridLabelOffset = 16 // default: 16
     const gridShape = ['circular', 'linear']
 
-
-
     console.log('There are ' + schemeColors.length + ' different types of scheme colors')
 
     return (
         <>
             <div className="base-div-50">
-                <h1>Base Radar</h1>
                 <ResponsiveRadar
                     data={ my_data }
                     keys={ teamMates }
@@ -134,11 +131,10 @@ export default function BaseRadar() {
                         }
                     ]}
                 />
-                <a href="https://nivo.rocks/radar/">Docs</a>
             </div>
         </>
     )
 }
 
-
+// <a href="https://nivo.rocks/radar/">Docs</a>
 // import { generateCountriesData } from '@nivo/generators'
