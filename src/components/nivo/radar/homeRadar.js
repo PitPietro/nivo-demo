@@ -9,14 +9,7 @@ export default function HomeRadar() {
                 <h1>Radar</h1>
                 <h2>Base Radar</h2>
                 <p>The 1st Radar example is focused on a benchmark about the <i>soft skills</i> of a team</p>
-                <Row>
-                    <Col>
-                        <BaseRadar />
-                    </Col>
-                    <Col>
-                        [the form will be placed here]
-                    </Col>
-                </Row>
+                <BaseRadar />
             </Container>
         </>
     )
