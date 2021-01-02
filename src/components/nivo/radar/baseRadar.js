@@ -1,7 +1,6 @@
 import React from "react"
 import {ResponsiveRadar} from '@nivo/radar'
-import {schemeColors} from "../nivo-utils/constants";
-import {Col, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap"
 
 /*
 function print_dict(object) {
