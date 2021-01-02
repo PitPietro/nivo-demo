@@ -7,7 +7,7 @@ function print_dict(object) {
         for(let key in object) {
             // check if the property/key is defined in the object itself, not in parent
             if(object.hasOwnProperty(key)) {
-                // console.log(key + ': ' + object[key]);
+                console.log(key + ': ' + object[key]);
             }
         }
 }
@@ -163,7 +163,7 @@ export default class BaseRadar extends React.Component {
                         <form>
                             <label>
                                 Is going:
-                                <select value={this.state.schemeColor} onChange={this.handleInputChange}>
+                                <select name="schemeColor" value={this.state.schemeColor} onChange={this.handleInputChange}>
                                     <option value="nivo">Nivo</option>
                                     <option value="category10">Category10</option>
                                 </select>
@@ -177,13 +177,6 @@ export default class BaseRadar extends React.Component {
                                     onChange={this.handleInputChange} />
                             </label>
                         </form>
-                        <p>
-                            User say:  {this.state.schemeColor}
-                        </p>
-                        <br/>
-                        <p>
-                            User say:  {this.state.numberOfGuests}
-                        </p>
                     </Col>
                 </Row>
             </>

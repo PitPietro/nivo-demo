@@ -3,6 +3,7 @@ It takes the [nivo](https://github.com/plouc/nivo) official React library, built
 This repository aims to build responsive examples for all the major functionality of the Nivo library.
 This repository has been made because the official repository does not offer a good example section.
 react.se
+
 ## Installed libraries
 ```bash
 yarn add [library]
@@ -16,3 +17,6 @@ yarn add [library]
 - @material-ui/core
 - react-bootstrap
 - bootstrap
+
+## Reference
+- [demo-single-change-handler](https://github.com/jaketrent/demo-single-change-handler)
