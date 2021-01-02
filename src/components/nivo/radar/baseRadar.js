@@ -17,7 +17,7 @@ export default class BaseRadar extends React.Component {
         super(props);
 
         this.state = {
-            schemeColor: 'nivo',
+            schemeColor: 0,
             numberOfGuests: 10
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,8 +28,10 @@ export default class BaseRadar extends React.Component {
         // const value = target.type === 'checkbox' ? target.checked : target.value;
         const value = target.value;
         const name = target.name;
-        console.log('\n Value: ' + value);
-        console.log('Name: ' + name);
+
+        console.log('\n handleInputChange');
+        console.log('value: ' + value);
+        console.log('name: ' + name);
         this.setState({
             [name]: value
         });
@@ -39,12 +41,14 @@ export default class BaseRadar extends React.Component {
         const teamMates = ['Mike', 'Anne', 'John'];
         const softSkills = ['Communication', 'Critical Thinking', 'Leadership', 'Positive Attitude', 'Teamwork'];
 
+        /*
         console.log('The team is composed by: ')
         let tm = 0
         teamMates.forEach( mate => {
             console.log(tm + ') ' + mate.toString());
             tm++;
         })
+         */
 
         const teamMatesDict = {
             'Mike': [50, 52, 100, 63, 80],
@@ -54,6 +58,7 @@ export default class BaseRadar extends React.Component {
 
         // get teamMatesDict keys
         const teamKeys = Object.keys(teamMatesDict);
+        /*
         console.log('\nTeam keys: ' + teamKeys)
 
         console.log('\nTeam + values: ')
@@ -70,6 +75,7 @@ export default class BaseRadar extends React.Component {
             console.log(s + ') ' + skill.toString());
             s++;
         })
+         */
 
         // list of dictionaries containing the layers (team mate and their values) foreach dimension (soft skill)
         let my_data = [];
@@ -84,15 +90,17 @@ export default class BaseRadar extends React.Component {
 
             my_data.push(tmp_dict);
 
-            console.log(i + '| printing tmp dict:');
-            print_dict(tmp_dict);
+            // console.log(i + '| printing tmp dict:');
+            // print_dict(tmp_dict);
         }
 
+        /*
         console.log("\nData array of dictionaries: ");
         for(let k = 0; k < my_data.length; k++) {
             console.log('|index: ' + k);
             print_dict(my_data[k]);
         }
+         */
 
         const margins = {top: 50, right: 120, bottom: 50, left: 80};
 
@@ -102,7 +110,7 @@ export default class BaseRadar extends React.Component {
         const gridLabelOffset = 16 // default: 16
         const gridShape = ['circular', 'linear']
 
-        console.log('There are ' + schemeColors.length + ' different types of scheme colors')
+        // console.log('There are ' + schemeColors.length + ' different types of scheme colors')
 
         return (
             <>
@@ -129,7 +137,7 @@ export default class BaseRadar extends React.Component {
                                 enableDotLabel={true}
                                 dotLabel="value"
                                 dotLabelYOffset={-12}
-                                colors={{ scheme: schemeColors[3] }}
+                                colors={{ scheme: schemeColors[this.state.schemeColor] }}
                                 fillOpacity={0.25} // 0-1
                                 blendMode="multiply" // default: "normal"
                                 animate={true}
@@ -164,8 +172,8 @@ export default class BaseRadar extends React.Component {
                             <label>
                                 Is going:
                                 <select name="schemeColor" value={this.state.schemeColor} onChange={this.handleInputChange}>
-                                    <option value="nivo">Nivo</option>
-                                    <option value="category10">Category10</option>
+                                    <option value="0">Nivo</option>
+                                    <option value="1">Category10</option>
                                 </select>
                             </label>
                             <br />

@@ -17,6 +17,3 @@ yarn add [library]
 - @material-ui/core
 - react-bootstrap
 - bootstrap
-
-## Reference
-- [demo-single-change-handler](https://github.com/jaketrent/demo-single-change-handler)
