@@ -19,7 +19,11 @@ export default class BaseRadar extends React.Component {
 
         this.state = {
             schemeColor: 'nivo',
-            numberOfGuests: 10
+            mate1Comm: 50,
+            mate1CT: 50,
+            mate1Lead: 100,
+            mate1PA: 63,
+            mate1Team: 80
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -49,17 +53,7 @@ export default class BaseRadar extends React.Component {
             console.log(tm + ') ' + mate.toString());
             tm++;
         })
-         */
 
-        const teamMatesDict = {
-            'Mike': [50, 52, 100, 63, 80],
-            'Anne': [30, 79, 47, 90, 30],
-            'John': [89, 90, 55, 20, 50]
-        };
-
-        // get teamMatesDict keys
-        const teamKeys = Object.keys(teamMatesDict);
-        /*
         console.log('\nTeam keys: ' + teamKeys)
 
         console.log('\nTeam + values: ')
@@ -77,6 +71,15 @@ export default class BaseRadar extends React.Component {
             s++;
         })
          */
+
+        const teamMatesDict = {
+            'Mike': [this.state.mate1Comm, this.state.mate1CT, this.state.mate1Lead, this.state.mate1PA, this.state.mate1Team],
+            'Anne': [30, 79, 47, 90, 30],
+            'John': [89, 90, 55, 20, 50]
+        };
+
+        // get teamMatesDict keys
+        const teamKeys = Object.keys(teamMatesDict);
 
         // list of dictionaries containing the layers (team mate and their values) foreach dimension (soft skill)
         let my_data = [];
@@ -170,8 +173,8 @@ export default class BaseRadar extends React.Component {
                     </Col>
                     <Col>
                         <form>
+                            <h3>Theme</h3>
                             <label>
-                                Is going:
                                 <select name="schemeColor" value={this.state.schemeColor} onChange={this.handleInputChange}>
                                     <option value="nivo">Nivo</option>
                                     <option value="category10">Category10</option>
@@ -213,11 +216,41 @@ export default class BaseRadar extends React.Component {
                                 </select>
                             </label>
                             <br />
+                            <h3>Skill Values</h3>
+                            <h4>Mike</h4>
+                            <h5>Communication</h5>
                             <label>
-                                Number of guests:
                                 <input
-                                    name="numberOfGuests" type="number"
-                                    value={this.state.numberOfGuests}
+                                    name="mate1Comm" type="number"
+                                    value={this.state.mate1Comm}
+                                    onChange={this.handleInputChange} />
+                            </label>
+                            <h5>Critical Thinking</h5>
+                            <label>
+                                <input
+                                    name="mate1CT" type="number"
+                                    value={this.state.mate1CT}
+                                    onChange={this.handleInputChange} />
+                            </label>
+                            <h5>Leadership</h5>
+                            <label>
+                                <input
+                                    name="mate1Lead" type="number"
+                                    value={this.state.mate1Lead}
+                                    onChange={this.handleInputChange} />
+                            </label>
+                            <h5>Positive Attitude</h5>
+                            <label>
+                                <input
+                                    name="mate1PA" type="number"
+                                    value={this.state.mate1PA}
+                                    onChange={this.handleInputChange} />
+                            </label>
+                            <h5>Teamwork</h5>
+                            <label>
+                                <input
+                                    name="mate1Team" type="number"
+                                    value={this.state.mate1Team}
                                     onChange={this.handleInputChange} />
                             </label>
                         </form>
