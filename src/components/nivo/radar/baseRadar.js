@@ -1,5 +1,5 @@
 import React from "react"
-import { ResponsiveRadar } from '@nivo/radar'
+import {ResponsiveRadar} from '@nivo/radar'
 import {schemeColors} from "../nivo-utils/constants";
 import {Col, Row} from "react-bootstrap";
 
@@ -7,7 +7,7 @@ function print_dict(object) {
         for(let key in object) {
             // check if the property/key is defined in the object itself, not in parent
             if(object.hasOwnProperty(key)) {
-                console.log(key + ': ' + object[key]);
+                // console.log(key + ': ' + object[key]);
             }
         }
 }
@@ -16,18 +16,23 @@ export default class BaseRadar extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {value: ''};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            schemeColor: 'nivo',
+            numberOfGuests: 10
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-
-    handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
+    handleInputChange(event) {
+        const target = event.target;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
+        const name = target.name;
+        console.log('\n Value: ' + value);
+        console.log('Name: ' + name);
+        this.setState({
+            [name]: value
+        });
     }
 
     render() {
@@ -155,15 +160,29 @@ export default class BaseRadar extends React.Component {
                         </div>
                     </Col>
                     <Col>
-                        <form onSubmit={this.handleSubmit}>
+                        <form>
                             <label>
-                                Input form:
-                                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                                Is going:
+                                <select value={this.state.schemeColor} onChange={this.handleInputChange}>
+                                    <option value="nivo">Nivo</option>
+                                    <option value="category10">Category10</option>
+                                </select>
                             </label>
-                            <input type="submit" value="Submit" />
+                            <br />
+                            <label>
+                                Number of guests:
+                                <input
+                                    name="numberOfGuests" type="number"
+                                    value={this.state.numberOfGuests}
+                                    onChange={this.handleInputChange} />
+                            </label>
                         </form>
                         <p>
-                            User say:  {this.state.value}
+                            User say:  {this.state.schemeColor}
+                        </p>
+                        <br/>
+                        <p>
+                            User say:  {this.state.numberOfGuests}
                         </p>
                     </Col>
                 </Row>
@@ -172,5 +191,7 @@ export default class BaseRadar extends React.Component {
     }
 }
 
+// https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react
+// https://reactjs.org/docs/forms.html
 // <a href="https://nivo.rocks/radar/">Docs</a>
 // import { generateCountriesData } from '@nivo/generators'

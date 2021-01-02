@@ -1,6 +1,7 @@
 import React from "react"
 import BaseRadar from "./baseRadar";
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
+import ClassComponentForm from "./classComponentForm";
 
 export default function HomeRadar() {
     return (
@@ -9,7 +10,8 @@ export default function HomeRadar() {
                 <h1>Radar</h1>
                 <h2>Base Radar</h2>
                 <p>The 1st Radar example is focused on a benchmark about the <i>soft skills</i> of a team</p>
-                <BaseRadar />
+                <BaseRadar/>
+                <ClassComponentForm />
             </Container>
         </>
     )
