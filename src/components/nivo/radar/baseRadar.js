@@ -3,6 +3,7 @@ import {ResponsiveRadar} from '@nivo/radar'
 import {schemeColors} from "../nivo-utils/constants";
 import {Col, Row} from "react-bootstrap";
 
+/*
 function print_dict(object) {
         for(let key in object) {
             // check if the property/key is defined in the object itself, not in parent
@@ -11,13 +12,14 @@ function print_dict(object) {
             }
         }
 }
+ */
 
 export default class BaseRadar extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            schemeColor: 0,
+            schemeColor: 'nivo',
             numberOfGuests: 10
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -137,7 +139,7 @@ export default class BaseRadar extends React.Component {
                                 enableDotLabel={true}
                                 dotLabel="value"
                                 dotLabelYOffset={-12}
-                                colors={{ scheme: schemeColors[this.state.schemeColor] }}
+                                colors={{ scheme: this.state.schemeColor }}
                                 fillOpacity={0.25} // 0-1
                                 blendMode="multiply" // default: "normal"
                                 animate={true}
@@ -172,8 +174,43 @@ export default class BaseRadar extends React.Component {
                             <label>
                                 Is going:
                                 <select name="schemeColor" value={this.state.schemeColor} onChange={this.handleInputChange}>
-                                    <option value="0">Nivo</option>
-                                    <option value="1">Category10</option>
+                                    <option value="nivo">Nivo</option>
+                                    <option value="category10">Category10</option>
+                                    <option value="accent">Accent</option>
+                                    <option value="dark2">Dark2</option>
+                                    <option value="paired">Paired</option>
+                                    <option value="pastel1">Pastel1</option>
+                                    <option value="pastel2">Pastel2</option>
+                                    <option value="set1">Set1</option>
+                                    <option value="set2">Set2</option>
+                                    <option value="set3">Set3</option>
+                                    <option value="brown_blueGreen">Brown to Blue/Green</option>
+                                    <option value="purpleRed_green">Purple/Red to Green</option>
+                                    <option value="pink_yellowGreen">Pink to Yellow/Green</option>
+                                    <option value="purple_orange">Purple to Orange</option>
+                                    <option value="red_blue">Red to Blue</option>
+                                    <option value="red_grey">Red Grey</option>
+                                    <option value="red_yellow_blue">Red to Yellow to Blue</option>
+                                    <option value="red_yellow_green">Red to Yellow to Green</option>
+                                    <option value="spectral">Spectral</option>
+                                    <option value="blues">Blues</option>
+                                    <option value="greens">Greens</option>
+                                    <option value="greys">Greys</option>
+                                    <option value="oranges">Oranges</option>
+                                    <option value="purples">Purples</option>
+                                    <option value="reds">Reds</option>
+                                    <option value="blue_green">Blue to Green</option>
+                                    <option value="blue_purple">Blue to Purple</option>
+                                    <option value="green_blue">Green Blue</option>
+                                    <option value="orange_red">Orange Red</option>
+                                    <option value="purple_blue_green">Purple to Blue to Green</option>
+                                    <option value="purple_blue">Purple to Blue</option>
+                                    <option value="purple_red">Purple to Red</option>
+                                    <option value="red_purple">Red to Purple</option>
+                                    <option value="yellow_green_blue">Yellow to Green to Blue</option>
+                                    <option value="yellow_green">Yellow to Green</option>
+                                    <option value="yellow_orange_brown">Yellow to Orange to Brown</option>
+                                    <option value="yellow_orange_red">Yellow to Orange to Red</option>
                                 </select>
                             </label>
                             <br />
