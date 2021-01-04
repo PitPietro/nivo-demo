@@ -1,6 +1,6 @@
 import React from "react"
 import {ResponsiveRadar} from '@nivo/radar'
-import {Accordion, Button, Card, Col, Form, Row} from "react-bootstrap"
+import {Accordion, Card, Col, Form, Row} from "react-bootstrap"
 
 /*
 function print_dict(object) {
@@ -128,7 +128,7 @@ export default class BaseRadar extends React.Component {
 
         return (
             <>
-                <Row>
+                <Row xs={1} md={2}>
                     <Col>
                         <div className="base-div-50">
                             <ResponsiveRadar
@@ -183,13 +183,11 @@ export default class BaseRadar extends React.Component {
                     </Col>
                     <Col>
                         <Form>
-                            <Accordion>
+                            <Accordion className="px-sm-1">
                                 <Card>
-                                    <Card.Header>
-                                        <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                                            <h3>Theme</h3>
-                                        </Accordion.Toggle>
-                                    </Card.Header>
+                                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                                        <h3>Theme</h3>
+                                    </Accordion.Toggle>
                                     <Accordion.Collapse eventKey="0">
                                         <Card.Body>
                                             <Form.Row>
@@ -245,11 +243,9 @@ export default class BaseRadar extends React.Component {
                                     </Accordion.Collapse>
                                 </Card>
                                 <Card>
-                                    <Card.Header>
-                                        <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                                            <h3>Skill Values</h3>
-                                        </Accordion.Toggle>
-                                    </Card.Header>
+                                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                                        <h3>Skill Values</h3>
+                                    </Accordion.Toggle>
                                     <Accordion.Collapse eventKey="1">
                                         <Card.Body>
                                             <h4>1. Communication</h4>
