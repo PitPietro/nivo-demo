@@ -1,6 +1,6 @@
 import React from "react"
 import {ResponsiveRadar} from '@nivo/radar'
-import {Col, Form, Row} from "react-bootstrap"
+import {Accordion, Button, Card, Col, Form, Row} from "react-bootstrap"
 
 /*
 function print_dict(object) {
@@ -183,219 +183,244 @@ export default class BaseRadar extends React.Component {
                     </Col>
                     <Col>
                         <Form>
-                            <Form.Row>
-                                <Form.Group as={Col}>
-                                    <Form.Label>
-                                        Theme
-                                    </Form.Label>
-                                    <Form.Control as="select" name="schemeColor" value={this.state.schemeColor}
-                                                  onChange={this.handleInputChange}>
-                                        <option value="nivo">Nivo</option>
-                                        <option value="category10">Category10</option>
-                                        <option value="accent">Accent</option>
-                                        <option value="dark2">Dark2</option>
-                                        <option value="paired">Paired</option>
-                                        <option value="pastel1">Pastel1</option>
-                                        <option value="pastel2">Pastel2</option>
-                                        <option value="set1">Set1</option>
-                                        <option value="set2">Set2</option>
-                                        <option value="set3">Set3</option>
-                                        <option value="brown_blueGreen">Brown to Blue/Green</option>
-                                        <option value="purpleRed_green">Purple/Red to Green</option>
-                                        <option value="pink_yellowGreen">Pink to Yellow/Green</option>
-                                        <option value="purple_orange">Purple to Orange</option>
-                                        <option value="red_blue">Red to Blue</option>
-                                        <option value="red_grey">Red Grey</option>
-                                        <option value="red_yellow_blue">Red to Yellow to Blue</option>
-                                        <option value="red_yellow_green">Red to Yellow to Green</option>
-                                        <option value="spectral">Spectral</option>
-                                        <option value="blues">Blues</option>
-                                        <option value="greens">Greens</option>
-                                        <option value="greys">Greys</option>
-                                        <option value="oranges">Oranges</option>
-                                        <option value="purples">Purples</option>
-                                        <option value="reds">Reds</option>
-                                        <option value="blue_green">Blue to Green</option>
-                                        <option value="blue_purple">Blue to Purple</option>
-                                        <option value="green_blue">Green Blue</option>
-                                        <option value="orange_red">Orange Red</option>
-                                        <option value="purple_blue_green">Purple to Blue to Green</option>
-                                        <option value="purple_blue">Purple to Blue</option>
-                                        <option value="purple_red">Purple to Red</option>
-                                        <option value="red_purple">Red to Purple</option>
-                                        <option value="yellow_green_blue">Yellow to Green to Blue</option>
-                                        <option value="yellow_green">Yellow to Green</option>
-                                        <option value="yellow_orange_brown">Yellow to Orange to Brown</option>
-                                        <option value="yellow_orange_red">Yellow to Orange to Red</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </Form.Row>
-                            <h3>Skill Values</h3>
-                            <h4>1. Communication</h4>
-                            <Form.Row>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Mike</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate1Comm"
-                                        value={this.state.mate1Comm}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Anne</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate2Comm"
-                                        value={this.state.mate2Comm}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>John</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate3Comm"
-                                        value={this.state.mate3Comm}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                            </Form.Row>
-                            <h4>2. Critical Thinking</h4>
-                            <Form.Row>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Mike</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate1CT"
-                                        value={this.state.mate1CT}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Anne</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate2CT"
-                                        value={this.state.mate2CT}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>John</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate3CT"
-                                        value={this.state.mate3CT}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                            </Form.Row>
-                            <h4>3. Leadership</h4>
-                            <Form.Row>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Mike</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate1Lead"
-                                        value={this.state.mate1Lead}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Anne</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate2Lead"
-                                        value={this.state.mate2Lead}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>John</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate3Lead"
-                                        value={this.state.mate3Lead}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                            </Form.Row>
-                            <h4>4. Positive Attitude</h4>
-                            <Form.Row>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Mike</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate1PA"
-                                        value={this.state.mate1PA}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Anne</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate2PA"
-                                        value={this.state.mate2PA}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>John</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate3PA"
-                                        value={this.state.mate3PA}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                            </Form.Row>
-                            <h4>5. Teamwork</h4>
-                            <Form.Row>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Mike</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate1Team"
-                                        value={this.state.mate1Team}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>Anne</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate2Team"
-                                        value={this.state.mate2Team}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col} md="4">
-                                    <Form.Label>John</Form.Label>
-                                    <Form.Control
-                                        required
-                                        type="number"
-                                        name="mate3Team"
-                                        value={this.state.mate3Team}
-                                        onChange={this.handleInputChange}
-                                    />
-                                </Form.Group>
-                            </Form.Row>
+                            <Accordion>
+                                <Card>
+                                    <Card.Header>
+                                        <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                                            <h3>Theme</h3>
+                                        </Accordion.Toggle>
+                                    </Card.Header>
+                                    <Accordion.Collapse eventKey="0">
+                                        <Card.Body>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="schemeColor"
+                                                                  value={this.state.schemeColor}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="nivo">Nivo</option>
+                                                        <option value="category10">Category10</option>
+                                                        <option value="accent">Accent</option>
+                                                        <option value="dark2">Dark2</option>
+                                                        <option value="paired">Paired</option>
+                                                        <option value="pastel1">Pastel1</option>
+                                                        <option value="pastel2">Pastel2</option>
+                                                        <option value="set1">Set1</option>
+                                                        <option value="set2">Set2</option>
+                                                        <option value="set3">Set3</option>
+                                                        <option value="brown_blueGreen">Brown to Blue/Green</option>
+                                                        <option value="purpleRed_green">Purple/Red to Green</option>
+                                                        <option value="pink_yellowGreen">Pink to Yellow/Green</option>
+                                                        <option value="purple_orange">Purple to Orange</option>
+                                                        <option value="red_blue">Red to Blue</option>
+                                                        <option value="red_grey">Red Grey</option>
+                                                        <option value="red_yellow_blue">Red to Yellow to Blue</option>
+                                                        <option value="red_yellow_green">Red to Yellow to Green</option>
+                                                        <option value="spectral">Spectral</option>
+                                                        <option value="blues">Blues</option>
+                                                        <option value="greens">Greens</option>
+                                                        <option value="greys">Greys</option>
+                                                        <option value="oranges">Oranges</option>
+                                                        <option value="purples">Purples</option>
+                                                        <option value="reds">Reds</option>
+                                                        <option value="blue_green">Blue to Green</option>
+                                                        <option value="blue_purple">Blue to Purple</option>
+                                                        <option value="green_blue">Green Blue</option>
+                                                        <option value="orange_red">Orange Red</option>
+                                                        <option value="purple_blue_green">Purple to Blue to Green
+                                                        </option>
+                                                        <option value="purple_blue">Purple to Blue</option>
+                                                        <option value="purple_red">Purple to Red</option>
+                                                        <option value="red_purple">Red to Purple</option>
+                                                        <option value="yellow_green_blue">Yellow to Green to Blue
+                                                        </option>
+                                                        <option value="yellow_green">Yellow to Green</option>
+                                                        <option value="yellow_orange_brown">Yellow to Orange to Brown
+                                                        </option>
+                                                        <option value="yellow_orange_red">Yellow to Orange to Red
+                                                        </option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                                <Card>
+                                    <Card.Header>
+                                        <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                                            <h3>Skill Values</h3>
+                                        </Accordion.Toggle>
+                                    </Card.Header>
+                                    <Accordion.Collapse eventKey="1">
+                                        <Card.Body>
+                                            <h4>1. Communication</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Mike</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate1Comm"
+                                                        value={this.state.mate1Comm}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Anne</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate2Comm"
+                                                        value={this.state.mate2Comm}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>John</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate3Comm"
+                                                        value={this.state.mate3Comm}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>2. Critical Thinking</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Mike</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate1CT"
+                                                        value={this.state.mate1CT}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Anne</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate2CT"
+                                                        value={this.state.mate2CT}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>John</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate3CT"
+                                                        value={this.state.mate3CT}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>3. Leadership</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Mike</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate1Lead"
+                                                        value={this.state.mate1Lead}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Anne</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate2Lead"
+                                                        value={this.state.mate2Lead}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>John</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate3Lead"
+                                                        value={this.state.mate3Lead}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>4. Positive Attitude</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Mike</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate1PA"
+                                                        value={this.state.mate1PA}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Anne</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate2PA"
+                                                        value={this.state.mate2PA}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>John</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate3PA"
+                                                        value={this.state.mate3PA}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>5. Teamwork</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Mike</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate1Team"
+                                                        value={this.state.mate1Team}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Anne</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate2Team"
+                                                        value={this.state.mate2Team}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>John</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="mate3Team"
+                                                        value={this.state.mate3Team}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                            </Accordion>
                         </Form>
                     </Col>
                 </Row>
@@ -403,6 +428,8 @@ export default class BaseRadar extends React.Component {
         );
     }
 }
+
+// TODO: Make the form responsive based on the layers (team mates and their values) and dimensions (soft skills)
 
 // https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react
 // https://reactjs.org/docs/forms.html
