@@ -1,6 +1,6 @@
 import React from "react"
 import {ResponsiveRadar} from '@nivo/radar'
-import {Col, Row} from "react-bootstrap"
+import {Col, Form, Row} from "react-bootstrap"
 
 /*
 function print_dict(object) {
@@ -84,11 +84,11 @@ export default class BaseRadar extends React.Component {
         // list of dictionaries containing the layers (team mate and their values) foreach dimension (soft skill)
         let my_data = [];
         const taste = "taste";
-        for(let i = 0; i < softSkills.length; i++) {
+        for (let i = 0; i < softSkills.length; i++) {
             let tmp_dict = {};
             // iterate over the skills
             tmp_dict[taste] = softSkills[i];
-            for(let j = 0; j < teamKeys.length; j++) {
+            for (let j = 0; j < teamKeys.length; j++) {
                 tmp_dict[teamKeys[j]] = teamMatesDict[teamKeys[j]][i];
             }
 
@@ -122,26 +122,26 @@ export default class BaseRadar extends React.Component {
                     <Col>
                         <div className="base-div-50">
                             <ResponsiveRadar
-                                data={ my_data }
-                                keys={ teamMates }
-                                indexBy={ taste }
+                                data={my_data}
+                                keys={teamMates}
+                                indexBy={taste}
                                 maxValue="auto"
                                 margin={margins}
-                                curve={ curveOptions[2] }
+                                curve={curveOptions[2]}
                                 borderWidth={2} // default: 2px
-                                borderColor={{ from: 'color' }}
+                                borderColor={{from: 'color'}}
                                 gridLevels={gridLiv}
                                 gridShape={gridShape[1]}
                                 gridLabelOffset={gridLabelOffset}
                                 enableDots={true}
                                 dotSize={10}
-                                dotColor={{ theme: 'background' }}
+                                dotColor={{theme: 'background'}}
                                 dotBorderWidth={2}
-                                dotBorderColor={{ from: 'color' }}
+                                dotBorderColor={{from: 'color'}}
                                 enableDotLabel={true}
                                 dotLabel="value"
                                 dotLabelYOffset={-12}
-                                colors={{ scheme: this.state.schemeColor }}
+                                colors={{scheme: this.state.schemeColor}}
                                 fillOpacity={0.25} // 0-1
                                 blendMode="multiply" // default: "normal"
                                 animate={true}
@@ -172,88 +172,100 @@ export default class BaseRadar extends React.Component {
                         </div>
                     </Col>
                     <Col>
-                        <form>
-                            <h3>Theme</h3>
-                            <label>
-                                <select name="schemeColor" value={this.state.schemeColor} onChange={this.handleInputChange}>
-                                    <option value="nivo">Nivo</option>
-                                    <option value="category10">Category10</option>
-                                    <option value="accent">Accent</option>
-                                    <option value="dark2">Dark2</option>
-                                    <option value="paired">Paired</option>
-                                    <option value="pastel1">Pastel1</option>
-                                    <option value="pastel2">Pastel2</option>
-                                    <option value="set1">Set1</option>
-                                    <option value="set2">Set2</option>
-                                    <option value="set3">Set3</option>
-                                    <option value="brown_blueGreen">Brown to Blue/Green</option>
-                                    <option value="purpleRed_green">Purple/Red to Green</option>
-                                    <option value="pink_yellowGreen">Pink to Yellow/Green</option>
-                                    <option value="purple_orange">Purple to Orange</option>
-                                    <option value="red_blue">Red to Blue</option>
-                                    <option value="red_grey">Red Grey</option>
-                                    <option value="red_yellow_blue">Red to Yellow to Blue</option>
-                                    <option value="red_yellow_green">Red to Yellow to Green</option>
-                                    <option value="spectral">Spectral</option>
-                                    <option value="blues">Blues</option>
-                                    <option value="greens">Greens</option>
-                                    <option value="greys">Greys</option>
-                                    <option value="oranges">Oranges</option>
-                                    <option value="purples">Purples</option>
-                                    <option value="reds">Reds</option>
-                                    <option value="blue_green">Blue to Green</option>
-                                    <option value="blue_purple">Blue to Purple</option>
-                                    <option value="green_blue">Green Blue</option>
-                                    <option value="orange_red">Orange Red</option>
-                                    <option value="purple_blue_green">Purple to Blue to Green</option>
-                                    <option value="purple_blue">Purple to Blue</option>
-                                    <option value="purple_red">Purple to Red</option>
-                                    <option value="red_purple">Red to Purple</option>
-                                    <option value="yellow_green_blue">Yellow to Green to Blue</option>
-                                    <option value="yellow_green">Yellow to Green</option>
-                                    <option value="yellow_orange_brown">Yellow to Orange to Brown</option>
-                                    <option value="yellow_orange_red">Yellow to Orange to Red</option>
-                                </select>
-                            </label>
-                            <br />
-                            <h3>Skill Values</h3>
-                            <h4>Mike</h4>
-                            <h5>Communication</h5>
-                            <label>
-                                <input
-                                    name="mate1Comm" type="number"
-                                    value={this.state.mate1Comm}
-                                    onChange={this.handleInputChange} />
-                            </label>
-                            <h5>Critical Thinking</h5>
+                        <Form>
+                            <Form.Row>
+                                <Form.Group as={Col}>
+                                    <Form.Label>
+                                        Theme
+                                    </Form.Label>
+                                    <Form.Control as="select" name="schemeColor" value={this.state.schemeColor}
+                                                  onChange={this.handleInputChange}>
+                                        <option value="nivo">Nivo</option>
+                                        <option value="category10">Category10</option>
+                                        <option value="accent">Accent</option>
+                                        <option value="dark2">Dark2</option>
+                                        <option value="paired">Paired</option>
+                                        <option value="pastel1">Pastel1</option>
+                                        <option value="pastel2">Pastel2</option>
+                                        <option value="set1">Set1</option>
+                                        <option value="set2">Set2</option>
+                                        <option value="set3">Set3</option>
+                                        <option value="brown_blueGreen">Brown to Blue/Green</option>
+                                        <option value="purpleRed_green">Purple/Red to Green</option>
+                                        <option value="pink_yellowGreen">Pink to Yellow/Green</option>
+                                        <option value="purple_orange">Purple to Orange</option>
+                                        <option value="red_blue">Red to Blue</option>
+                                        <option value="red_grey">Red Grey</option>
+                                        <option value="red_yellow_blue">Red to Yellow to Blue</option>
+                                        <option value="red_yellow_green">Red to Yellow to Green</option>
+                                        <option value="spectral">Spectral</option>
+                                        <option value="blues">Blues</option>
+                                        <option value="greens">Greens</option>
+                                        <option value="greys">Greys</option>
+                                        <option value="oranges">Oranges</option>
+                                        <option value="purples">Purples</option>
+                                        <option value="reds">Reds</option>
+                                        <option value="blue_green">Blue to Green</option>
+                                        <option value="blue_purple">Blue to Purple</option>
+                                        <option value="green_blue">Green Blue</option>
+                                        <option value="orange_red">Orange Red</option>
+                                        <option value="purple_blue_green">Purple to Blue to Green</option>
+                                        <option value="purple_blue">Purple to Blue</option>
+                                        <option value="purple_red">Purple to Red</option>
+                                        <option value="red_purple">Red to Purple</option>
+                                        <option value="yellow_green_blue">Yellow to Green to Blue</option>
+                                        <option value="yellow_green">Yellow to Green</option>
+                                        <option value="yellow_orange_brown">Yellow to Orange to Brown</option>
+                                        <option value="yellow_orange_red">Yellow to Orange to Red</option>
+                                    </Form.Control>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Label>Skill Values</Form.Label>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col} md="4">
+                                    <h4>Communication</h4>
+                                    <Form.Label>Mike</Form.Label>
+                                    <Form.Control
+                                        required
+                                        type="number"
+                                        name="mate1Comm"
+                                        value={this.state.mate1Comm}
+                                        onChange={this.handleInputChange}
+                                    />
+                                </Form.Group>
+
+                            </Form.Row>
+                            <h4>Critical Thinking</h4>
                             <label>
                                 <input
                                     name="mate1CT" type="number"
                                     value={this.state.mate1CT}
-                                    onChange={this.handleInputChange} />
+                                    onChange={this.handleInputChange}/>
                             </label>
-                            <h5>Leadership</h5>
+                            <h4>Leadership</h4>
                             <label>
                                 <input
                                     name="mate1Lead" type="number"
                                     value={this.state.mate1Lead}
-                                    onChange={this.handleInputChange} />
+                                    onChange={this.handleInputChange}/>
                             </label>
                             <h5>Positive Attitude</h5>
                             <label>
                                 <input
                                     name="mate1PA" type="number"
                                     value={this.state.mate1PA}
-                                    onChange={this.handleInputChange} />
+                                    onChange={this.handleInputChange}/>
                             </label>
-                            <h5>Teamwork</h5>
+                            <h4>Teamwork</h4>
                             <label>
                                 <input
                                     name="mate1Team" type="number"
                                     value={this.state.mate1Team}
-                                    onChange={this.handleInputChange} />
+                                    onChange={this.handleInputChange}/>
                             </label>
-                        </form>
+                        </Form>
                     </Col>
                 </Row>
             </>
