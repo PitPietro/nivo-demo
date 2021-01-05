@@ -21,6 +21,7 @@ export default class BaseRadar extends React.Component {
             schemeColor: 'nivo',
             fillOpacity: 0.25,
             blendMode: 'normal',
+            borderWidth: 2,
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -140,7 +141,7 @@ export default class BaseRadar extends React.Component {
                                 maxValue="auto"
                                 margin={margins}
                                 curve={curveOptions[2]}
-                                borderWidth={2} // default: 2px
+                                borderWidth={this.state.borderWidth} // default: 2px
                                 borderColor={{from: 'color'}}
                                 gridLevels={gridLiv}
                                 gridShape={gridShape[1]}
@@ -277,6 +278,18 @@ export default class BaseRadar extends React.Component {
                                                         <option value="color">color</option>
                                                         <option value="luminosity">luminosity</option>
                                                     </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>borderWidth</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Label>
+                                                        {this.state.borderWidth}
+                                                    </Form.Label>
+                                                    <Form.Control type="range" name="borderWidth"
+                                                                  min={0} max={20} step={0.05}
+                                                                  value={this.state.borderWidth}
+                                                                  onChange={this.handleInputChange}/>
                                                 </Form.Group>
                                             </Form.Row>
                                         </Card.Body>
