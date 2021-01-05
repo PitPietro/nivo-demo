@@ -124,7 +124,6 @@ export default class BaseRadar extends React.Component {
         const curveOptions = ['linearClosed', 'basisClosed', 'catmullRomClosed', 'cardinalClosed']
 
         const gridLiv = 10
-        const gridLabelOffset = 16 // default: 16
         const gridShape = ['circular', 'linear']
 
         // console.log('There are ' + schemeColors.length + ' different types of scheme colors')
@@ -135,31 +134,50 @@ export default class BaseRadar extends React.Component {
                     <Col>
                         <div className="base-div-50">
                             <ResponsiveRadar
-                                data={my_data}
-                                keys={teamMates}
+                                data={my_data} // start base menu
                                 indexBy={taste}
-                                maxValue="auto"
+                                keys={teamMates}
+                                maxValue="auto" //TODO
+                                curve={curveOptions[2]} //TODO
                                 margin={margins}
-                                curve={curveOptions[2]}
+                                // end base menu
+
+                                // start style menu
+                                colors={{scheme: this.state.schemeColor}} // default: {"scheme":"nivo"}
+                                fillOpacity={this.state.fillOpacity} // default: 0.25
+                                blendMode={this.state.blendMode} // default: 'normal'
                                 borderWidth={this.state.borderWidth} // default: 2px
                                 borderColor={{from: 'color'}}
-                                gridLevels={gridLiv}
-                                gridShape={gridShape[1]}
-                                gridLabelOffset={gridLabelOffset}
-                                enableDots={true}
-                                dotSize={10}
-                                dotColor={{theme: 'background'}}
-                                dotBorderWidth={2}
-                                dotBorderColor={{from: 'color'}}
-                                enableDotLabel={true}
-                                dotLabel="value"
-                                dotLabelYOffset={-12}
-                                colors={{scheme: this.state.schemeColor}}
-                                fillOpacity={this.state.fillOpacity}
-                                blendMode={this.state.blendMode}
-                                animate={true}
-                                motionConfig="wobbly"
-                                isInteractive={true}
+                                // end style menu
+
+                                // start grid menu
+                                gridLevels={gridLiv} // default: 5 (min: 1)
+                                gridShape={gridShape[1]} // default: 'circular' (options: 'linear')
+                                gridLabelOffset={16} // default: 16
+                                // end grid menu
+
+                                // start dots
+                                enableDots={true} // default: true
+                                dotSize={10} // default: 6 (range: 0 - 50, step: 1)
+                                dotColor={{theme: 'background'}} // default: {"from":"color"}
+                                dotBorderWidth={2} // default: 0 (range: 0 ~ 10, step: 1)
+                                dotBorderColor={{from: 'color'}} // default: {"from":"color"}
+                                enableDotLabel={true} // default: false
+                                dotLabel="value" // default: 'value' (options: 'index', 'key')
+                                dotLabelYOffset={-12} // default -12: (range: -24 ~ +24, step: 1)
+                                // end dots
+
+                                // start interactivity
+                                isInteractive={true} // default: true (do not touch it if you have an heart)
+                                // end interactivity
+
+                                // start motion
+                                animate={true} // default: true (do not touch it if you have an heart)
+                                motionConfig="wobbly" // default: 'wobbly'
+                                // (options: 'default', 'gentle', 'wobbly', 'stiff', 'slow', 'molasses')
+                                // end motion
+
+                                // legend settings
                                 legends={[
                                     {
                                         anchor: 'top-left',
