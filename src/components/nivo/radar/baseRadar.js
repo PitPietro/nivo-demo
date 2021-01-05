@@ -20,6 +20,7 @@ export default class BaseRadar extends React.Component {
         this.state = {
             schemeColor: 'nivo',
             fillOpacity: 0.25,
+            blendMode: 'normal',
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -154,7 +155,7 @@ export default class BaseRadar extends React.Component {
                                 dotLabelYOffset={-12}
                                 colors={{scheme: this.state.schemeColor}}
                                 fillOpacity={this.state.fillOpacity}
-                                blendMode="multiply" // default: "normal"
+                                blendMode={this.state.blendMode}
                                 animate={true}
                                 motionConfig="wobbly"
                                 isInteractive={true}
@@ -250,7 +251,32 @@ export default class BaseRadar extends React.Component {
                                                     <Form.Control type="range" name="fillOpacity"
                                                                   min={0} max={1} step={0.05}
                                                                   value={this.state.fillOpacity}
-                                                                  onChange={this.handleInputChange} />
+                                                                  onChange={this.handleInputChange}/>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>blendMode</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="blendMode"
+                                                                  value={this.state.blendMode}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="normal">normal</option>
+                                                        <option value="multiply">multiply</option>
+                                                        <option value="screen">screen</option>
+                                                        <option value="overlay">overlay</option>
+                                                        <option value="darken">darken</option>
+                                                        <option value="lighten">lighten</option>
+                                                        <option value="color-dodge">color-dodge</option>
+                                                        <option value="color-brune">color-brune</option>
+                                                        <option value="hard-light">hard-light</option>
+                                                        <option value="soft-light">soft-light</option>
+                                                        <option value="difference">difference</option>
+                                                        <option value="exclusion">exclusion</option>
+                                                        <option value="hue">hue</option>
+                                                        <option value="saturation">saturation</option>
+                                                        <option value="color">color</option>
+                                                        <option value="luminosity">luminosity</option>
+                                                    </Form.Control>
                                                 </Form.Group>
                                             </Form.Row>
                                         </Card.Body>
