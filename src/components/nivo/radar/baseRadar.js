@@ -19,6 +19,7 @@ export default class BaseRadar extends React.Component {
 
         this.state = {
             schemeColor: 'nivo',
+            fillOpacity: 0.25,
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -152,7 +153,7 @@ export default class BaseRadar extends React.Component {
                                 dotLabel="value"
                                 dotLabelYOffset={-12}
                                 colors={{scheme: this.state.schemeColor}}
-                                fillOpacity={0.25} // 0-1
+                                fillOpacity={this.state.fillOpacity}
                                 blendMode="multiply" // default: "normal"
                                 animate={true}
                                 motionConfig="wobbly"
@@ -186,10 +187,11 @@ export default class BaseRadar extends React.Component {
                             <Accordion className="px-sm-1">
                                 <Card>
                                     <Accordion.Toggle as={Card.Header} eventKey="0">
-                                        <h3>Theme</h3>
+                                        <h3>Style</h3>
                                     </Accordion.Toggle>
                                     <Accordion.Collapse eventKey="0">
                                         <Card.Body>
+                                            <h4>Colors</h4>
                                             <Form.Row>
                                                 <Form.Group as={Col}>
                                                     <Form.Control as="select" name="schemeColor"
@@ -237,6 +239,18 @@ export default class BaseRadar extends React.Component {
                                                         <option value="yellow_orange_red">Yellow to Orange to Red
                                                         </option>
                                                     </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>fillOpacity</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Label>
+                                                        {this.state.fillOpacity}
+                                                    </Form.Label>
+                                                    <Form.Control type="range" name="fillOpacity"
+                                                                  min={0} max={1} step={0.05}
+                                                                  value={this.state.fillOpacity}
+                                                                  onChange={this.handleInputChange} />
                                                 </Form.Group>
                                             </Form.Row>
                                         </Card.Body>
