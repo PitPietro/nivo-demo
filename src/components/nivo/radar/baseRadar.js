@@ -18,6 +18,11 @@ export default class BaseRadar extends React.Component {
         super(props);
 
         this.state = {
+            curve: 'linearClosed',
+            marginT: 50,
+            marginB: 50,
+            marginL: 80,
+            marginR: 120,
             schemeColor: 'nivo',
             fillOpacity: 0.25,
             blendMode: 'normal',
@@ -119,9 +124,12 @@ export default class BaseRadar extends React.Component {
         }
          */
 
-        const margins = {top: 50, right: 120, bottom: 50, left: 80};
-
-        const curveOptions = ['linearClosed', 'basisClosed', 'catmullRomClosed', 'cardinalClosed']
+        const margins = {
+            top: this.state.marginT,
+            bottom: this.state.marginB,
+            left: this.state.marginL,
+            right: this.state.marginR
+        };
 
         const gridLiv = 10
         const gridShape = ['circular', 'linear']
@@ -134,11 +142,12 @@ export default class BaseRadar extends React.Component {
                     <Col>
                         <div className="base-div-50">
                             <ResponsiveRadar
-                                data={my_data} // start base menu
+                                // start base menu
+                                data={my_data}
                                 indexBy={taste}
                                 keys={teamMates}
-                                maxValue="auto" //TODO
-                                curve={curveOptions[2]} //TODO
+                                maxValue="auto" //default: 'auto' else range 0 - 1000
+                                curve={this.state.curve} // 'linearClosed', 'basisClosed', 'cardinalClosed', 'catmullRomClosed'
                                 margin={margins}
                                 // end base menu
 
@@ -207,9 +216,74 @@ export default class BaseRadar extends React.Component {
                             <Accordion className="px-sm-1">
                                 <Card>
                                     <Accordion.Toggle as={Card.Header} eventKey="0">
-                                        <h3>Style</h3>
+                                        <h3>Base</h3>
                                     </Accordion.Toggle>
                                     <Accordion.Collapse eventKey="0">
+                                        <Card.Body>
+                                            <h4>Curve</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="curve"
+                                                                  value={this.state.curve}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="linearClosed">linearClosed</option>
+                                                        <option value="basisClosed">basisClosed</option>
+                                                        <option value="cardinalClosed">cardinalClosed</option>
+                                                        <option value="catmullRomClosed">catmullRomClosed</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>Margins</h4>
+                                            <Form.Row className="pl-5">
+                                                <Form.Group as={Col} md="5" className="pr-3">
+                                                    <Form.Label>top</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="marginT"
+                                                        value={this.state.marginT}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="5" className="pl-3">
+                                                    <Form.Label>right</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="marginR"
+                                                        value={this.state.marginR}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <Form.Row className="pl-5">
+                                                <Form.Group as={Col} md="5" className="pr-3">
+                                                    <Form.Label>bottom</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="marginB"
+                                                        value={this.state.marginB}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="5" className="pl-3">
+                                                    <Form.Label>left</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="marginL"
+                                                        value={this.state.marginL}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                                        <h3>Style</h3>
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="1">
                                         <Card.Body>
                                             <h4>Colors</h4>
                                             <Form.Row>
@@ -314,10 +388,10 @@ export default class BaseRadar extends React.Component {
                                     </Accordion.Collapse>
                                 </Card>
                                 <Card>
-                                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                                    <Accordion.Toggle as={Card.Header} eventKey="2">
                                         <h3>Skill Values</h3>
                                     </Accordion.Toggle>
-                                    <Accordion.Collapse eventKey="1">
+                                    <Accordion.Collapse eventKey="2">
                                         <Card.Body>
                                             <h4>1. Communication</h4>
                                             <Form.Row>
