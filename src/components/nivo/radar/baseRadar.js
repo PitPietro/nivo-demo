@@ -27,6 +27,9 @@ export default class BaseRadar extends React.Component {
             fillOpacity: 0.25,
             blendMode: 'normal',
             borderWidth: 2,
+            gridLevels: 5,
+            girdShape: 'circular',
+            gridLabelOffset: 16,
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -131,9 +134,6 @@ export default class BaseRadar extends React.Component {
             right: this.state.marginR
         };
 
-        const gridLiv = 10
-        const gridShape = ['circular', 'linear']
-
         // console.log('There are ' + schemeColors.length + ' different types of scheme colors')
 
         return (
@@ -160,9 +160,9 @@ export default class BaseRadar extends React.Component {
                                 // end style menu
 
                                 // start grid menu
-                                gridLevels={gridLiv} // default: 5 (min: 1)
-                                gridShape={gridShape[1]} // default: 'circular' (options: 'linear')
-                                gridLabelOffset={16} // default: 16
+                                gridLevels={this.state.gridLevels} // default: 5 (min: 1)
+                                gridShape={this.state.girdShape} // default: 'circular' (options: 'linear')
+                                gridLabelOffset={this.state.gridLabelOffset} // default: 16
                                 // end grid menu
 
                                 // start dots
@@ -280,6 +280,8 @@ export default class BaseRadar extends React.Component {
                                             </Form.Row>
                                         </Card.Body>
                                     </Accordion.Collapse>
+                                </Card>
+                                <Card>
                                     <Accordion.Toggle as={Card.Header} eventKey="1">
                                         <h3>Style</h3>
                                     </Accordion.Toggle>
@@ -556,6 +558,51 @@ export default class BaseRadar extends React.Component {
                                                         value={this.state.mate3Team}
                                                         onChange={this.handleInputChange}
                                                     />
+                                                </Form.Group>
+                                            </Form.Row>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                                <Card>
+                                     <Accordion.Toggle as={Card.Header} eventKey="3">
+                                        <h3>Grid</h3>
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="3">
+                                        <Card.Body>
+                                            <h4>gridLevels</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Label>
+                                                        {this.state.gridLevels}
+                                                    </Form.Label>
+                                                    <Form.Control type="range" name="gridLevels"
+                                                                  min={1} max={20} step={1}
+                                                                  value={this.state.gridLevels}
+                                                                  onChange={this.handleInputChange}/>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>girdShape</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="girdShape"
+                                                                  value={this.state.girdShape}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="circular">circular</option>
+                                                        <option value="linear">linear</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <p>TODO: gridLabelOffset does not work</p>
+                                            <h4>gridLabelOffset</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Label>
+                                                        {this.state.gridLabelOffset}
+                                                    </Form.Label>
+                                                    <Form.Control type="range" name="gridLabelOffset"
+                                                                  min={1} max={60} step={1}
+                                                                  value={this.state.gridLabelOffset}
+                                                                  onChange={this.handleInputChange}/>
                                                 </Form.Group>
                                             </Form.Row>
                                         </Card.Body>
