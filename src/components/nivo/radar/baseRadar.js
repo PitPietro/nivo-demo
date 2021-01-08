@@ -31,6 +31,11 @@ export default class BaseRadar extends React.Component {
             girdShape: 'circular',
             gridLabelOffset: 16,
             enableDots: true,
+            dotSize: 10,
+            dotBorderWidth: 2,
+            enableDotLabel: true,
+            dotLabel: 'value',
+            dotLabelYOffset: -12,
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -168,13 +173,13 @@ export default class BaseRadar extends React.Component {
 
                                 // start dots
                                 enableDots={this.state.enableDots} // default: true
-                                dotSize={10} // default: 6 (range: 0 - 50, step: 1)
+                                dotSize={this.state.dotSize} // default: 6 (range: 0 - 50, step: 1)
                                 dotColor={{theme: 'background'}} // default: {"from":"color"}
-                                dotBorderWidth={2} // default: 0 (range: 0 ~ 10, step: 1)
+                                dotBorderWidth={this.state.dotBorderWidth} // default: 0 (range: 0 ~ 10, step: 1)
                                 dotBorderColor={{from: 'color'}} // default: {"from":"color"}
-                                enableDotLabel={true} // default: false
-                                dotLabel="value" // default: 'value' (options: 'index', 'key')
-                                dotLabelYOffset={-12} // default -12: (range: -24 ~ +24, step: 1)
+                                enableDotLabel={this.state.enableDotLabel} // default: false
+                                dotLabel={this.state.dotLabel} // default: 'value' (options: 'index', 'key')
+                                dotLabelYOffset={this.state.dotLabelYOffset} // default -12: (range: -24 ~ +24, step: 1)
                                 // end dots
 
                                 // start interactivity
@@ -626,6 +631,65 @@ export default class BaseRadar extends React.Component {
                                                     />
                                                 </Form.Group>
                                             </Form.Row>
+                                            <h4>dotSize</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Label>
+                                                        {this.state.dotSize}
+                                                    </Form.Label>
+                                                    <Form.Control type="range" name="dotSize"
+                                                                  min={0} max={50} step={1}
+                                                                  value={this.state.dotSize}
+                                                                  onChange={this.handleInputChange}/>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>dotBorderWidth</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Label>
+                                                        {this.state.dotBorderWidth}
+                                                    </Form.Label>
+                                                    <Form.Control type="range" name="dotBorderWidth"
+                                                                  min={0} max={10} step={1}
+                                                                  value={this.state.dotBorderWidth}
+                                                                  onChange={this.handleInputChange}/>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>enableDotLabel</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Check
+                                                        type="checkbox"
+                                                        name="enableDotLabel"
+                                                        checked={this.state.enableDotLabel}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>dotLabel</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="dotLabel"
+                                                                  value={this.state.dotLabel}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="value">value</option>
+                                                        <option value="index">index</option>
+                                                        <option value="key">key</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>dotLabelYOffset</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Label>
+                                                        {this.state.dotLabelYOffset}
+                                                    </Form.Label>
+                                                    <Form.Control type="range" name="dotLabelYOffset"
+                                                                  min={-24} max={24} step={1}
+                                                                  value={this.state.dotLabelYOffset}
+                                                                  onChange={this.handleInputChange}/>
+                                                </Form.Group>
+                                            </Form.Row>
                                         </Card.Body>
                                     </Accordion.Collapse>
                                 </Card>
@@ -644,3 +708,6 @@ export default class BaseRadar extends React.Component {
 // https://reactjs.org/docs/forms.html
 // <a href="https://nivo.rocks/radar/">Docs</a>
 // import { generateCountriesData } from '@nivo/generators'
+
+// How To Build a Custom Toggle Switch with React
+// https://www.digitalocean.com/community/tutorials/how-to-build-a-custom-toggle-switch-with-react
