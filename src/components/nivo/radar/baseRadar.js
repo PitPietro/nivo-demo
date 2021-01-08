@@ -30,6 +30,7 @@ export default class BaseRadar extends React.Component {
             gridLevels: 5,
             girdShape: 'circular',
             gridLabelOffset: 16,
+            enableDots: true,
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -51,8 +52,8 @@ export default class BaseRadar extends React.Component {
 
     handleInputChange(event) {
         const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        const value = target.value;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        // const value = target.value;
         const name = target.name;
 
         console.log('\n handleInputChange');
@@ -166,7 +167,7 @@ export default class BaseRadar extends React.Component {
                                 // end grid menu
 
                                 // start dots
-                                enableDots={true} // default: true
+                                enableDots={this.state.enableDots} // default: true
                                 dotSize={10} // default: 6 (range: 0 - 50, step: 1)
                                 dotColor={{theme: 'background'}} // default: {"from":"color"}
                                 dotBorderWidth={2} // default: 0 (range: 0 ~ 10, step: 1)
@@ -603,6 +604,26 @@ export default class BaseRadar extends React.Component {
                                                                   min={1} max={60} step={1}
                                                                   value={this.state.gridLabelOffset}
                                                                   onChange={this.handleInputChange}/>
+                                                </Form.Group>
+                                            </Form.Row>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                                <Card>
+                                    <Accordion.Toggle as={Card.Header} eventKey="4">
+                                        <h3>Dots</h3>
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="4">
+                                        <Card.Body>
+                                            <h4>enableDots</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Check
+                                                        type="checkbox"
+                                                        name="enableDots"
+                                                        checked={this.state.enableDots}
+                                                        onChange={this.handleInputChange}
+                                                    />
                                                 </Form.Group>
                                             </Form.Row>
                                         </Card.Body>
