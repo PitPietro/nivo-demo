@@ -36,6 +36,9 @@ export default class BaseRadar extends React.Component {
             enableDotLabel: true,
             dotLabel: 'value',
             dotLabelYOffset: -12,
+            isInteractive: true,
+            animate: true,
+            motionConfig: 'wobby',
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -183,12 +186,12 @@ export default class BaseRadar extends React.Component {
                                 // end dots
 
                                 // start interactivity
-                                isInteractive={true} // default: true (do not touch it if you have an heart)
+                                isInteractive={this.state.isInteractive} // default: true (do not touch it if you have an heart)
                                 // end interactivity
 
                                 // start motion
-                                animate={true} // default: true (do not touch it if you have an heart)
-                                motionConfig="wobbly" // default: 'wobbly'
+                                animate={this.state.animate} // default: true (do not touch it if you have an heart)
+                                motionConfig={this.state.motionConfig} // default: 'wobbly'
                                 // (options: 'default', 'gentle', 'wobbly', 'stiff', 'slow', 'molasses')
                                 // end motion
 
@@ -688,6 +691,52 @@ export default class BaseRadar extends React.Component {
                                                                   min={-24} max={24} step={1}
                                                                   value={this.state.dotLabelYOffset}
                                                                   onChange={this.handleInputChange}/>
+                                                </Form.Group>
+                                            </Form.Row>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                                <Card>
+                                    <Accordion.Toggle as={Card.Header} eventKey="5">
+                                        <h3>Interactivity & Motion</h3>
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="5">
+                                        <Card.Body>
+                                            <h4>isInteractive</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Check
+                                                        type="checkbox"
+                                                        name="isInteractive"
+                                                        checked={this.state.isInteractive}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>animate</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Check
+                                                        type="checkbox"
+                                                        name="animate"
+                                                        checked={this.state.animate}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>motionConfig</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="motionConfig"
+                                                                  value={this.state.motionConfig}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="wobbly">wobbly</option>
+                                                        <option value="default">default</option>
+                                                        <option value="gentle">gentle</option>
+                                                        <option value="stiff">stiff</option>
+                                                        <option value="slow">slow</option>
+                                                        <option value="molasses">molasses</option>
+                                                    </Form.Control>
                                                 </Form.Group>
                                             </Form.Row>
                                         </Card.Body>
