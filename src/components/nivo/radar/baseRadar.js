@@ -18,27 +18,51 @@ export default class BaseRadar extends React.Component {
         super(props);
 
         this.state = {
+            // base
             curve: 'linearClosed',
             marginT: 50,
             marginB: 50,
             marginL: 80,
             marginR: 120,
+
+            // style
             schemeColor: 'nivo',
             fillOpacity: 0.25,
             blendMode: 'normal',
             borderWidth: 2,
+
+            // grid
             gridLevels: 5,
             girdShape: 'circular',
             gridLabelOffset: 16,
+
+            // dots
             enableDots: true,
             dotSize: 10,
             dotBorderWidth: 2,
             enableDotLabel: true,
             dotLabel: 'value',
             dotLabelYOffset: -12,
+
+            // interactivity and motion
             isInteractive: true,
             animate: true,
             motionConfig: 'wobby',
+
+            // legend
+            anchorLegend: 'top-left',
+            directionLegend: 'column',
+            itemDirectionLegend: 'left-to-right',
+            translateXLegend: 0,
+            translateYLegend: 0,
+            itemWidthLegend: 80,
+            itemHeightLegend: 20,
+            symbolSizeLegend: 12,
+            symbolShapeLegend: 'square',
+
+            // skill values
+            // the amount of those values should change
+            // based on the number of layers and dimension
             mate1Comm: 50,
             mate2Comm: 30,
             mate3Comm: 89,
@@ -195,18 +219,25 @@ export default class BaseRadar extends React.Component {
                                 // (options: 'default', 'gentle', 'wobbly', 'stiff', 'slow', 'molasses')
                                 // end motion
 
-                                // legend settings
+                                // legends settings
+                                // it could possible to add a button i.e. 'Add Legend' since this variable
+                                // is a list of dictionaries containing all the legends of the radar
                                 legends={[
                                     {
-                                        anchor: 'top-left',
-                                        direction: 'column',
-                                        translateX: 50,
-                                        translateY: 40,
-                                        itemWidth: 80,
-                                        itemHeight: 20,
+                                        // 'top-left', 'top', 'top-right', 'left', 'center', 'right', 'bottom-left', 'bottom', 'bottom-right',
+                                        anchor: this.state.anchorLegend,
+                                        direction: this.state.directionLegend, // 'column' or 'row'
+                                        // itemDirection property defines how symbol and label are positioned.
+                                        // 'left-to-right', 'right-to-left', 'top-to-bottom', 'bottom-to-top'
+                                        itemDirection: this.state.itemDirectionLegend,
+                                        translateX: this.state.translateXLegend,
+                                        translateY: this.state.translateYLegend,
+                                        itemWidth: this.state.itemWidthLegend,
+                                        itemHeight: this.state.itemHeightLegend,
                                         itemTextColor: '#999',
-                                        symbolSize: 12,
-                                        symbolShape: 'circle',
+                                        symbolSize: this.state.symbolSizeLegend,
+                                        // you can use a custom shape passing a component
+                                        symbolShape: this.state.symbolShapeLegend, // 'square', 'circle', 'triangle', 'diamond'
                                         effects: [
                                             {
                                                 on: 'hover',
@@ -736,6 +767,128 @@ export default class BaseRadar extends React.Component {
                                                         <option value="stiff">stiff</option>
                                                         <option value="slow">slow</option>
                                                         <option value="molasses">molasses</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                                <Card>
+                                    <Accordion.Toggle as={Card.Header} eventKey="6">
+                                        <h3>Legend</h3>
+                                    </Accordion.Toggle>
+                                    <Accordion.Collapse eventKey="6">
+                                        <Card.Body>
+                                            <h4>anchor</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="anchorLegend"
+                                                                  value={this.state.anchorLegend}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="top-left">top-left</option>
+                                                        <option value="top">top</option>
+                                                        <option value="top-right">top-right</option>
+                                                        <option value="left">left</option>
+                                                        <option value="center">center</option>
+                                                        <option value="right">right</option>
+                                                        <option value="bottom-left">bottom-left</option>
+                                                        <option value="bottom">bottom</option>
+                                                        <option value="bottom-right">bottom-right</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>direction</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="directionLegend"
+                                                                  value={this.state.directionLegend}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="column">column</option>
+                                                        <option value="row">row</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>itemDirection</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="itemDirectionLegend"
+                                                                  value={this.state.itemDirectionLegend}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="left-to-right">left-to-right</option>
+                                                        <option value="right-to-left">right-to-left</option>
+                                                        <option value="top-to-bottom">top-to-bottom</option>
+                                                        <option value="bottom-to-top">bottom-to-top</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>translateLegend</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>X</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="translateXLegend"
+                                                        value={this.state.translateXLegend}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Y</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="translateYLegend"
+                                                        value={this.state.translateYLegend}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>item dimension</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Width</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="itemWidthLegend"
+                                                        value={this.state.itemWidthLegend}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group as={Col} md="4">
+                                                    <Form.Label>Height</Form.Label>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="itemHeightLegend"
+                                                        value={this.state.itemHeightLegend}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>symbol Size</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control
+                                                        required
+                                                        type="number"
+                                                        name="symbolSizeLegend"
+                                                        value={this.state.symbolSizeLegend}
+                                                        onChange={this.handleInputChange}
+                                                    />
+                                                </Form.Group>
+                                            </Form.Row>
+                                            <h4>symbol Shape</h4>
+                                            <Form.Row>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control as="select" name="symbolShapeLegend"
+                                                                  value={this.state.symbolShapeLegend}
+                                                                  onChange={this.handleInputChange}>
+                                                        <option value="square">square</option>
+                                                        <option value="circle">circle</option>
+                                                        <option value="triangle">triangle</option>
+                                                        <option value="diamond">diamond</option>
                                                     </Form.Control>
                                                 </Form.Group>
                                             </Form.Row>
