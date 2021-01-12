@@ -1,19 +1,28 @@
 import React from "react";
 import './App.css';
-import Layout from "./components/util/layout";
 import {Route, Switch} from "react-router-dom";
-import HomePage from "./components/pages/homepage";
+import HomePage from "./components/homepage/homePage";
 import HomeRadar from "./components/nivo/radar/homeRadar";
 import HomePie from "./components/nivo/pie/homePie";
+import PageNotFound from "./PageNotFound";
+import About from "./components/About";
+import DismissibleAlert2 from "./components/react-bootstrap/alerts/DismissibleAlert2";
+import DismissibleAlert1 from "./components/react-bootstrap/alerts/DismissibleAlert1";
+import ReactBootstrapHome from "./components/react-bootstrap/reactBootstrapHome";
 
 export default function App() {
     return (
-        <Layout>
+        <div className="body-background">
             <Switch>
                 <Route exact path="/" component={HomePage}/>
-                <Route path="/radar/" component={HomeRadar}/>
-                <Route path="/pie/" component={HomePie}/>
+                <Route path="/react-bootstrap" component={ReactBootstrapHome}/>
+                <Route path="/dismissible-alert-1" component={DismissibleAlert1}/>
+                <Route path="/dismissible-alert-2" component={DismissibleAlert2}/>
+                <Route path="/about" component={About}/>
+                <Route path="/nivo-pie/" component={HomePie}/>
+                <Route path="/nivo-radar/" component={HomeRadar}/>
+                <Route component={PageNotFound}/>
             </Switch>
-        </Layout>
+        </div>
     );
 }

@@ -123,7 +123,7 @@ export default function BasePie() {
 
     return (
         <>
-            <div className="base-div-50">
+            <div className="base-div-50 bg-light">
                 <ResponsivePie
                     data={my_data}
                     margin={margins}

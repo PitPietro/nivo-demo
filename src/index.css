@@ -8,11 +8,19 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color: white;
 }
 
 .base-div-50 {
   height: 50em;
   width: 50em;
+}
+
+.my-navbar {
+  background-color: rgb(5, 45, 157);
+}
+
+.body-background {
+  background-color: #6b9cc4;
 }
