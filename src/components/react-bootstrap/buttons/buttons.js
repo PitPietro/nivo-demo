@@ -12,76 +12,7 @@ with pt-3 the padding top is set to be the $spacer variable
 with mx-3 set the both the left and right padding to $spacer
  */
 
-function simulateNetworkRequest() {
-    return new Promise((resolve) => setTimeout(resolve, 2000));
-}
 
-function LoadingButton() {
-    const [isLoading, setLoading] = useState(false);
-
-    useEffect(() => {
-        if (isLoading) {
-            simulateNetworkRequest().then(() => {
-                setLoading(false);
-            });
-        }
-    }, [isLoading]);
-
-    const handleClick = () => setLoading(true);
-
-    return (
-        <Button
-            variant="primary"
-            disabled={isLoading}
-            onClick={!isLoading ? handleClick : null}
-        >
-            {isLoading ? 'Loading…' : 'Click to load'}
-        </Button>
-    );
-}
-
-function ToggleButtonExample() {
-    const [checked, setChecked] = useState(false);
-    const [radioValue, setRadioValue] = useState('1');
-
-    const radios = [
-        {name: 'Car', value: '1'},
-        {name: 'Bike', value: '2'},
-        {name: 'Plane', value: '3'},
-    ];
-
-    return (
-        <>
-            <ButtonGroup toggle className="mb-2">
-                <ToggleButton
-                    type="checkbox"
-                    variant="secondary"
-                    checked={checked}
-                    value="1"
-                    onChange={(e) => setChecked(e.currentTarget.checked)}
-                >
-                    Checked
-                </ToggleButton>
-            </ButtonGroup>
-            <br/>
-            <ButtonGroup toggle>
-                {radios.map((radio, idx) => (
-                    <ToggleButton
-                        key={idx}
-                        type="radio"
-                        variant="secondary"
-                        name="radio"
-                        value={radio.value}
-                        checked={radioValue === radio.value}
-                        onChange={(e) => setRadioValue(e.currentTarget.value)}
-                    >
-                        {radio.name}
-                    </ToggleButton>
-                ))}
-            </ButtonGroup>
-        </>
-    );
-}
 
 function ToggleButtonUncontrolled() {
     return (
@@ -251,11 +182,11 @@ export default function Buttons() {
                     /&gt;</code>s props from a state change like below.
                 </p>
                 <Col>
-                    <LoadingButton/>
                 </Col>
             </Row>
+            <H3 title="3.7. Checkbox / Radio"/>
             <Row className="pt-3 mx-3">
-                <H3 title="3.7. Checkbox / Radio"/>
+
                 <p className="text-justify">
                     Buttons can also be used to style <code>checkbox</code> and <code>radio</code> form elements. This
                     is helpful when you want a toggle button that works neatly inside an HTML form.
@@ -265,11 +196,14 @@ export default function Buttons() {
                         This handles styling, but requires manually controlling the <code>checked</code> state for each
                         radio or checkbox in the group.
                     </p>
-                    <ToggleButtonExample/>
                 </Col>
             </Row>
+
+
+
+            <H3 title="3.8. Uncontrolled"/>
             <Row className="pt-3 mx-3">
-                <H3 title="3.8. Uncontrolled"/>
+
                 <p className="text-justify">
                     For a nicer experience with checked state management use
                     the <code>&lt;ToggleButtonGroup&gt;</code> instead of a <code>&lt;ButtonGroup
@@ -278,15 +212,9 @@ export default function Buttons() {
                     toggled <code>value</code> in a similarly named radio group.
                 </p>
                 <Col>
-                    <ToggleButtonUncontrolled/>
                 </Col>
             </Row>
-            <Row className="pt-3 mx-3">
-                <H3 title="3.9. Controlled"/>
-                <Col>
-                    <ToggleButtonControlled/>
-                </Col>
-            </Row>
+
         </Container>
     );
 }

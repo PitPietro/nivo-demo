@@ -6,7 +6,7 @@ export default class HomeHeader extends Component {
         return (
             <>
             <h1 className="pt-3">{this.props.name}</h1>
-            <img src={logo} className="App-logo" alt="logo"/>
+            <img src={logo} className="App-logo drop-sw" alt="logo"/>
             </>
         );
     }

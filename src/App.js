@@ -9,7 +9,6 @@ import About from "./components/About";
 import DismissibleAlert2 from "./components/react-bootstrap/alerts/DismissibleAlert2";
 import DismissibleAlert1 from "./components/react-bootstrap/alerts/DismissibleAlert1";
 import ReactBootstrapHome from "./components/react-bootstrap/reactBootstrapHome";
-
 export default function App() {
     return (
         <div className="body-background">

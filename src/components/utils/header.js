@@ -38,6 +38,7 @@ export default class Header extends Component {
                                 <NavDropdown.Item href="/nivo-pie">Pie</NavDropdown.Item>
                                 <NavDropdown.Item href="/nivo-radar">Radar</NavDropdown.Item>
                             </NavDropdown>
+                            <Nav.Link href="/learn-css/">Learn CSS</Nav.Link>
                             <Nav.Link href="/about">About</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
