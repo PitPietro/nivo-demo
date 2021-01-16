@@ -1,12 +1,12 @@
 import React from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 export default function BasicButtons() {
     return (
         <Container className="center-block text-center py-5">
-            <H3 title="3.1. Basic"/>
+            <H2 title="Basic"/>
             <Row className="pt-3 mx-3">
                 <p className="text-justify">
                     Just modify the <code className="text-light">variant</code> prop instead of adding the <code

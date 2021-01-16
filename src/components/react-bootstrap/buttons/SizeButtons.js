@@ -1,12 +1,12 @@
 import React from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 export default function SizeButtons() {
     return (
         <Container className="center-block text-center">
-            <H3 title="3.4. Size"/>
+            <H2 title="Size"/>
             <Row className="pt-3 mx-3">
                 <p className="text-justify">
                     Fancy larger or smaller buttons? Add <code className="text-light">size="lg"</code>, <code className="text-light">size="sm"</code> for additional

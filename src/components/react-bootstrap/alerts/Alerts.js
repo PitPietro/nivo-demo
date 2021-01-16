@@ -1,6 +1,4 @@
 import React from "react";
-import {Container, Row, Col, Alert} from "react-bootstrap";
-import H2 from "../../utils/titles/h2";
 import BasicAlerts from "./BasicAlerts";
 import LinkAlerts from "./LinkAlerts";
 import AdditionalContentAlerts from "./AdditionalContentAlerts";

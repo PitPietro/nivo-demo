@@ -1,12 +1,12 @@
 import React from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 export default function OutlineAlerts() {
     return (
         <Container className="center-block text-center">
-            <H3 title="3.2. Outline"/>
+            <H2 title="Outline"/>
             <Row className="pt-3 mx-3">
 
                 <p className="text-justify">

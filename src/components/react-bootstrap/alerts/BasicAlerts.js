@@ -1,12 +1,13 @@
 import React from "react";
 import {Alert, Col, Container, Row} from "react-bootstrap";
 import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 export default function BasicAlerts() {
     return (
         <Container className="center-block text-center">
-            <H3 title="2.1. Basic"/>
+            <H2 title="Basic"/>
             <Row className="pt-3">
                 <Col>
                     <Alert variant='primary'>Primary!</Alert>

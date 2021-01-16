@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Col, Container, Row, ToggleButton} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 import {ButtonGroup} from "@material-ui/core";
 
 function ToggleButtonExample() {
@@ -50,7 +50,7 @@ function ToggleButtonExample() {
 export default function CheckboxRadioButtons() {
     return (
         <Container className="center-block text-center py-5">
-            <H3 title="3.7. Checkbox / Radio"/>
+            <H2 title="Checkbox / Radio"/>
             <Row className="pt-3 mx-3">
 
                 <p className="text-justify">

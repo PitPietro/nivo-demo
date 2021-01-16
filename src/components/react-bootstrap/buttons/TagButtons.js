@@ -1,12 +1,12 @@
 import React from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 export default function TagButtons() {
     return (
         <Container className="center-block text-center">
-            <H3 title="3.3. Button tags"/>
+            <H2 title="Button tags"/>
             <Row className="pt-3 mx-3">
                 <p className="text-justify">
                     <code className="text-light">&lt;Button&gt;</code> components will render a HTML <code className="text-light">&lt;button&gt;</code> element.

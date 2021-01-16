@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Container, Row, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 function ToggleButtonUncontrolled() {
@@ -25,7 +25,7 @@ function ToggleButtonUncontrolled() {
 export default function UncontrolledButtons() {
     return (
         <Container className="center-block text-center">
-            <H3 title="3.8. Uncontrolled"/>
+            <H2 title="Uncontrolled"/>
             <Row className="pt-3 mx-3">
 
                 <p className="text-justify">

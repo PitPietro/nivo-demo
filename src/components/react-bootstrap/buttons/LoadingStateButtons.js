@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 function simulateNetworkRequest() {
     const timeout = 2000
@@ -35,7 +35,7 @@ function LoadingButton() {
 export default function LoadingStateButtons() {
     return (
         <Container className="center-block text-center">
-            <H3 title="3.6. Button loading state"/>
+            <H2 title="Button loading state"/>
             <Row className="pt-3 mx-3">
                 <h2 className="pt-2 text-left">Button loading state</h2>
                 <p className="text-justify">

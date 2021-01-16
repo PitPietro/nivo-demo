@@ -10,6 +10,7 @@ import DismissibleAlert2 from "./components/react-bootstrap/alerts/DismissibleAl
 import DismissibleAlert1 from "./components/react-bootstrap/alerts/DismissibleAlert1";
 import ReactBootstrapGetStarted from "./components/react-bootstrap/reactBootstrapGetStarted";
 import Alerts from "./components/react-bootstrap/alerts/Alerts";
+import Buttons from "./components/react-bootstrap/buttons/Buttons";
 export default function App() {
     return (
         <div className="body-background">
@@ -17,6 +18,7 @@ export default function App() {
                 <Route exact path="/" component={HomePage}/>
                 <Route path="/react-bootstrap/get-started" component={ReactBootstrapGetStarted}/>
                 <Route path="/react-bootstrap/alerts" component={Alerts}/>
+                <Route path="/react-bootstrap/buttons" component={Buttons}/>
                 <Route path="/dismissible-alert-1" component={DismissibleAlert1}/>
                 <Route path="/dismissible-alert-2" component={DismissibleAlert2}/>
                 <Route path="/about" component={About}/>

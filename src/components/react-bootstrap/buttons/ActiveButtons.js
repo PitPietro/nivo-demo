@@ -1,12 +1,12 @@
 import React from "react";
 import {Button, Col, Container, Row} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 export default function ActiveButtons() {
     return (
         <Container className="center-block text-center">
-            <H3 title="3.5. Active & Disabled"/>
+            <H2 title="Active & Disabled"/>
             <Row className="pt-3 mx-3">
                 <p className="text-justify">
                     To set a button's active state simply set the component's <code className="text-light">active</code> prop.<br/>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Col, Container, Row, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 function ToggleButtonControlled() {
@@ -28,7 +28,7 @@ function ToggleButtonControlled() {
 export default function ControlledButtons() {
     return (
         <Container className="center-block text-center pb-5">
-            <H3 title="3.9. Controlled"/>
+            <H2 title="Controlled"/>
             <Row className="pt-3 mx-3">
                 <Col>
                     <ToggleButtonControlled/>

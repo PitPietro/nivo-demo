@@ -1,13 +1,13 @@
 import React from "react";
 import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import H3 from "../../utils/titles/h3";
+import H2 from "../../utils/titles/h2";
 
 
 export default function DismissibleAlerts() {
     return (
         <Container className="center-block text-center">
-            <H3 title="2.4. Dismissing"/>
+            <H2 title="Dismissing"/>
             <p className="text-left">
                 Add the <code className="text-light">dismissible</code> prop to add a functioning dismiss button to the
                 Alert.
