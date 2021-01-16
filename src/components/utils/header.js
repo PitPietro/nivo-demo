@@ -33,7 +33,10 @@ export default class Header extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/react-bootstrap">React Bootstrap</Nav.Link>
+                            <NavDropdown title="React Bootstrap" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="/react-bootstrap/get-started">Get started</NavDropdown.Item>
+                                <NavDropdown.Item href="/react-bootstrap/alerts">Alerts</NavDropdown.Item>
+                            </NavDropdown>
                             <NavDropdown title="NiVo" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/nivo-pie">Pie</NavDropdown.Item>
                                 <NavDropdown.Item href="/nivo-radar">Radar</NavDropdown.Item>

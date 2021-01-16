@@ -1,5 +1,5 @@
 import React from "react";
-import {Alert, Button, Col, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import H3 from "../../utils/titles/h3";
 
 

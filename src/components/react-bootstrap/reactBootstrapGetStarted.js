@@ -4,14 +4,12 @@ import H3 from "../utils/titles/h3";
 import H2 from "../utils/titles/h2";
 import Layout from "../utils/layout";
 import CodeBlock from "../utils/codeBlock";
-import Buttons from "./buttons/buttons";
 import BasicAlerts from "./alerts/BasicAlerts";
 import LinkAlerts from "./alerts/LinkAlerts";
 import AdditionalContentAlerts from "./alerts/AdditionalContentAlerts";
 import DismissibleAlerts from "./alerts/DismissibleAlerts";
 import BasicButtons from "./buttons/BasicButtons";
 import OutlineAlerts from "./buttons/OutlineButtons";
-import TagAlerts from "./buttons/TagButtons";
 import TagButtons from "./buttons/TagButtons";
 import SizeButtons from "./buttons/SizeButtons";
 import ActiveButtons from "./buttons/ActiveButtons";
@@ -20,7 +18,7 @@ import LoadingStateButtons from "./buttons/LoadingStateButtons";
 import UncontrolledButtons from "./buttons/UncontrolledButtons";
 import ControlledButtons from "./buttons/ControlledButtons";
 
-class ReactBootstrapHome extends Component {
+class ReactBootstrapGetStarted extends Component {
     render() {
         return (
             <Layout>
@@ -62,11 +60,6 @@ class ReactBootstrapHome extends Component {
                     </CodeBlock>
                 </div>
 
-                <H2 title="2. Alerts"/>
-                <BasicAlerts/>
-                <LinkAlerts/>
-                <AdditionalContentAlerts/>
-                <DismissibleAlerts/>
                 <H2 title="3. Buttons"/>
                 <BasicButtons />
                 <OutlineAlerts />
@@ -83,4 +76,4 @@ class ReactBootstrapHome extends Component {
     }
 }
 
-export default ReactBootstrapHome;
+export default ReactBootstrapGetStarted;

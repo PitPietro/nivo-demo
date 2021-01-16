@@ -1,5 +1,5 @@
 import React from "react";
-import {Alert, Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import H3 from "../../utils/titles/h3";
 

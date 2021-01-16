@@ -1,5 +1,4 @@
 import React from "react";
-import {Container} from "react-bootstrap";
 import Layout from "./components/utils/layout";
 // import {Col, Container, Row} from "react-bootstrap-bootstrap";
 
