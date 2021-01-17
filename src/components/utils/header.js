@@ -36,6 +36,7 @@ export default class Header extends Component {
                             <NavDropdown title="React Bootstrap" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/react-bootstrap/get-started">Get started</NavDropdown.Item>
                                 <NavDropdown.Item href="/react-bootstrap/alerts">Alerts</NavDropdown.Item>
+                                <NavDropdown.Item href="/react-bootstrap/accordions">Accordions</NavDropdown.Item>
                                 <NavDropdown.Item href="/react-bootstrap/buttons">Buttons</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title="NiVo" id="collasible-nav-dropdown">

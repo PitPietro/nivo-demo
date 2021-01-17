@@ -1,6 +1,5 @@
 import React from "react";
 import {Alert, Col, Container, Row} from "react-bootstrap";
-import H3 from "../../utils/titles/h3";
 import H2 from "../../utils/titles/h2";
 
 

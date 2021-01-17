@@ -4,7 +4,7 @@ import H2 from "../utils/titles/h2";
 import Layout from "../utils/layout";
 import CodeBlock from "../utils/codeBlock";
 
-class ReactBootstrapGetStarted extends Component {
+class GetStarted extends Component {
     render() {
         return (
             <Layout>
@@ -49,4 +49,4 @@ class ReactBootstrapGetStarted extends Component {
     }
 }
 
-export default ReactBootstrapGetStarted;
+export default GetStarted;

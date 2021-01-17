@@ -8,16 +8,19 @@ import PageNotFound from "./PageNotFound";
 import About from "./components/About";
 import DismissibleAlert2 from "./components/react-bootstrap/alerts/DismissibleAlert2";
 import DismissibleAlert1 from "./components/react-bootstrap/alerts/DismissibleAlert1";
-import ReactBootstrapGetStarted from "./components/react-bootstrap/reactBootstrapGetStarted";
+import GetStarted from "./components/react-bootstrap/GetStarted";
 import Alerts from "./components/react-bootstrap/alerts/Alerts";
 import Buttons from "./components/react-bootstrap/buttons/Buttons";
+import Accordions from "./components/react-bootstrap/accordions/Accordions";
+
 export default function App() {
     return (
         <div className="body-background">
             <Switch>
                 <Route exact path="/" component={HomePage}/>
-                <Route path="/react-bootstrap/get-started" component={ReactBootstrapGetStarted}/>
+                <Route path="/react-bootstrap/get-started" component={GetStarted}/>
                 <Route path="/react-bootstrap/alerts" component={Alerts}/>
+                <Route path="/react-bootstrap/accordions" component={Accordions}/>
                 <Route path="/react-bootstrap/buttons" component={Buttons}/>
                 <Route path="/dismissible-alert-1" component={DismissibleAlert1}/>
                 <Route path="/dismissible-alert-2" component={DismissibleAlert2}/>
