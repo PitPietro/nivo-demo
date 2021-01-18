@@ -35,15 +35,18 @@ export default class Header extends Component {
                         <Nav className="mr-auto">
                             <NavDropdown title="React Bootstrap" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/react-bootstrap/get-started">Get started</NavDropdown.Item>
+                                <NavDropdown.Divider/>
                                 <NavDropdown.Item href="/react-bootstrap/alerts">Alerts</NavDropdown.Item>
                                 <NavDropdown.Item href="/react-bootstrap/accordions">Accordions</NavDropdown.Item>
+                                <NavDropdown.Divider/>
                                 <NavDropdown.Item href="/react-bootstrap/buttons">Buttons</NavDropdown.Item>
+                                <NavDropdown.Divider/>
                             </NavDropdown>
                             <NavDropdown title="NiVo" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/nivo-pie">Pie</NavDropdown.Item>
                                 <NavDropdown.Item href="/nivo-radar">Radar</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="/learn-css/">Learn CSS</Nav.Link>
+                            <Nav.Link href="/webcam/">Webcam</Nav.Link>
                             <Nav.Link href="/about">About</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
