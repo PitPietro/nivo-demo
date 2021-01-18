@@ -26,3 +26,6 @@ yarn add [library]
 - @material-ui/core
 - react-bootstrap
 - bootstrap
+- react-webcam
+- react-responsive
+- react-camera-pro

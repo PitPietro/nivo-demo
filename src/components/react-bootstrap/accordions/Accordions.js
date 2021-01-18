@@ -1,5 +1,4 @@
 import React from "react";
-import {Container, Row, Col, Button, Card, Accordion} from "react-bootstrap";
 import Layout from "../../utils/layout";
 import Title from "../../utils/titles/title";
 import BasicAccordions from "./BasicAccordions";

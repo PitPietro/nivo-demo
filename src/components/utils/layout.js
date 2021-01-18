@@ -11,7 +11,7 @@ export default function Layout({ children }) {
                 <Header/>
                 {children}
             </Container>
-            <Container className=" text-center p-0 m-0 body-background" fluid>
+            <Container className="text-center p-0 m-0 body-background" fluid>
                 <Footer />
             </Container>
         </>
