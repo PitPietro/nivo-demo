@@ -33,6 +33,7 @@ export default class Header extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto text-left">
+                            <Nav.Link href="/redux-home">Redux</Nav.Link>
                             <NavDropdown title="React Bootstrap" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/react-bootstrap/get-started">Get started</NavDropdown.Item>
                                 <NavDropdown.Divider/>

@@ -25,6 +25,10 @@ code {
   background-color: #6b9cc4;
 }
 
+.matte-body-background {
+  background-color: #F2F3F4;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

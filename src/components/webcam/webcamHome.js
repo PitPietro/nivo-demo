@@ -19,7 +19,7 @@ export default class WebcamHome extends Component {
                         </div>
                     </MediaQuery>
                     <MediaQuery maxDeviceWidth={laptopMinDeviceWidth}>
-                        <p>Comming soon</p>
+                        <p>Coming soon</p>
                     </MediaQuery>
 
                     <MediaQuery orientation='portrait'>

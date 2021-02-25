@@ -10,7 +10,12 @@ This repository has been made because the official repository does not offer a g
 ## Clone
 ```bash
 git clone https://github.com/PitPietro/react-demo.git
-cd raect-demo && yarn install
+cd rect-demo && yarn install
+```
+
+## Run the webserver
+```bash
+yarn start
 ```
 
 ## Installed libraries
@@ -29,3 +34,4 @@ yarn add [library]
 - react-webcam
 - react-responsive
 - react-camera-pro
+- react-redux
