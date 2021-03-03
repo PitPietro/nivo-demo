@@ -2,6 +2,8 @@ import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
 
 let nextTodoId = 0;
 
+// <AddTodo /> needs to trigger changes to the store to add new todos.
+// it needs to be able to dispatch actions to the store.
 export const addTodo = content => ({
     type: ADD_TODO,
     payload: {

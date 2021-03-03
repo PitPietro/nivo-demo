@@ -121,3 +121,4 @@ export default reduxHome;
 
 // Using target="_blank" without rel="noreferrer" is a security risk:
 // // see https://html.spec.whatwg.org/multipage/links.html#link-type-noopener  react/jsx-no-target-blank
+// https://codesandbox.io/s/9on71rvnyo
