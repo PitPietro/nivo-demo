@@ -14,7 +14,7 @@ import Buttons from "./components/react-bootstrap/buttons/Buttons";
 import Accordions from "./components/react-bootstrap/accordions/Accordions";
 import WebcamHome from "./components/webcam/webcamHome";
 import ScreenDimension from "./components/tests/screenDimension";
-import reduxHome from "./components/redux/reduxHome";
+import reduxHome from "./components/redux-comp/reduxHome";
 
 export default function App() {
     return (

@@ -2,6 +2,9 @@ import React from "react";
 import Layout from "../utils/layout";
 import H2 from "../utils/titles/h2";
 import H3 from "../utils/titles/h3";
+import AddTodo from "./AddTodo";
+import TodoList from "./TodoList";
+import VisibilityFilters from "./VisibilityFilters";
 
 function reduxHome() {
     return (
@@ -57,7 +60,7 @@ function reduxHome() {
                     <li>
                         <b>Store</b>
                         <ol>
-                            <li></li>
+                            <li><code>todos</code></li>
                             <li></li>
                         </ol>
                     </li>
@@ -101,6 +104,13 @@ function reduxHome() {
                         </ol>
                     </li>
                 </ul>
+            </div>
+
+            <div className="todo-app">
+                <h1>Todo List</h1>
+                <AddTodo />
+                <TodoList />
+                <VisibilityFilters />
             </div>
 
         </Layout>
